@@ -5,6 +5,5 @@ public enum BodyPartType {
 	Hat,
 	EyeNoseMouthButton,
 	Scarf,
-	Torso,
-	Legs
+	Mitten
 }

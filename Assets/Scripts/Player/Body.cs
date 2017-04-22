@@ -17,16 +17,16 @@ public class Body : MonoBehaviour {
 	private GameObject Mouth5 = null;
 
 	private GameObject Scarf = null;
-	public GameObject Torso = null;
-	private GameObject Legs = null;
 	private GameObject Button1 = null;
 	private GameObject Button2 = null;
 	private GameObject Button3 = null;
 	private GameObject Button4 = null;
 
+	public GameObject HatPosition = null;
+	public GameObject HatText = null;
+
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -47,8 +47,6 @@ public class Body : MonoBehaviour {
 			Mouth4 != null &&
 			Mouth5 != null &&
 			Scarf != null &&
-			Torso != null &&
-			Legs != null &&
 			Button1 != null &&
 			Button2 != null &&
 			Button3 != null &&
@@ -61,10 +59,11 @@ public class Body : MonoBehaviour {
 		if (obj != null) {
 			BodyPart bodyPart = obj.GetComponent<BodyPart> ();
 			if (bodyPart != null) {
-				if (bodyPart.bodyPartType == BodyPartType.Torso) {
-					if (this.Torso == null) {
-						this.Torso = obj;
-						AssignGameObject (obj);
+				if (bodyPart.bodyPartType == BodyPartType.Hat) {
+					if (this.Hat == null) {
+						this.Hat = obj;
+						AssignGameObject (obj, HatPosition);
+						HatText.SetActive (false);
 					}
 				
 				}
@@ -72,7 +71,12 @@ public class Body : MonoBehaviour {
 		}
 	}
 
-	void AssignGameObject(GameObject obj) {
-		obj.transform.parent = this.transform;
+	void AssignGameObject(GameObject obj, GameObject parent) {
+		//Vector3 scale = obj.transform.localScale;
+		
+		obj.transform.parent = parent.transform;
+		obj.transform.rotation = new Quaternion ();
+		obj.transform.localPosition = new Vector3 ();
+		//obj.transform.localScale = scale;
 	}
 }
