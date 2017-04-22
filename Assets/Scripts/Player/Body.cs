@@ -78,5 +78,10 @@ public class Body : MonoBehaviour {
 		obj.transform.rotation = new Quaternion ();
 		obj.transform.localPosition = new Vector3 ();
 		//obj.transform.localScale = scale;
+
+		Rigidbody rigidbody = obj.GetComponent<Rigidbody> ();
+		if (rigidbody != null) {
+			rigidbody.isKinematic = true;
+		}
 	}
 }
