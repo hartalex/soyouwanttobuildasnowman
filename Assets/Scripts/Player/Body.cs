@@ -42,7 +42,10 @@ public class Body : MonoBehaviour {
 	public GameObject RightMittenText = null;
 
 	public GameObject YouWinText = null;
+	public GameObject StartText = null;
 	public GameObject MainCamera = null;
+
+	private bool isStartScreen = true;
 
 	// Use this for initialization
 	void Start () {
@@ -50,24 +53,48 @@ public class Body : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (isComplete()) {
-			// You WIN
-			//MainCamera
-			YouWinText.SetActive(true);
+		// Start Scene is also the main scene, this gives snow some time to fall
+		if (isStartScreen) {
+			if (Input.GetButton ("Fire1")) {
+				isStartScreen = false;
+				// Turn off Spinning 
+				Look cameraLook = MainCamera.GetComponent<Look> ();
+				if (cameraLook != null) {
+					cameraLook.enabled = true;
+				}
+				CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
+				if (cameraOrbit != null) {
+					cameraOrbit.enabled = false;
+				}
+				Look look = this.GetComponent<Look> ();
+				if (look != null) {
+					look.enabled = true;
+				}
+				MainCamera.transform.localPosition = new Vector3 (0f, 1f, 0.75f);
+				MainCamera.transform.rotation = new Quaternion();
+				StartText.SetActive (false);
+			}
+		} else {
 
-			Look cameraLook = MainCamera.GetComponent<Look> ();
-			if (cameraLook != null) {
-				cameraLook.enabled = false;
-			}
-			CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
-			if (cameraOrbit != null) {
-				cameraOrbit.enabled = true;
-			}
-			Look look = this.GetComponent<Look> ();
-			if (look != null) {
-				look.enabled = false;
-			}
+			if (isComplete ()) {
+				// You WIN
+				//MainCamera
+				YouWinText.SetActive (true);
 
+				Look cameraLook = MainCamera.GetComponent<Look> ();
+				if (cameraLook != null) {
+					cameraLook.enabled = false;
+				}
+				CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
+				if (cameraOrbit != null) {
+					cameraOrbit.enabled = true;
+				}
+				Look look = this.GetComponent<Look> ();
+				if (look != null) {
+					look.enabled = false;
+				}
+
+			}
 		}
 	}
 
@@ -175,6 +202,11 @@ public class Body : MonoBehaviour {
 		obj.transform.parent = parent.transform;
 		obj.transform.rotation = new Quaternion ();
 		obj.transform.localPosition = new Vector3 ();
+
+		BodyPart bodyPart = obj.GetComponent<BodyPart> ();
+		if (bodyPart != null) {
+			bodyPart.isEnabled = false;
+		}
 		//obj.transform.localScale = scale;
 
 		Rigidbody rigidbody = obj.GetComponent<Rigidbody> ();
