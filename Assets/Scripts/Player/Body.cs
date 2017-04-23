@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Body : MonoBehaviour {
 
@@ -44,6 +45,8 @@ public class Body : MonoBehaviour {
 	public GameObject YouWinText = null;
 	public GameObject StartText = null;
 	public GameObject MainCamera = null;
+	public GameObject UIPanel = null;
+
 
 	private bool isStartScreen = true;
 
@@ -73,6 +76,7 @@ public class Body : MonoBehaviour {
 				MainCamera.transform.localPosition = new Vector3 (0f, 1f, 0.75f);
 				MainCamera.transform.rotation = new Quaternion();
 				StartText.SetActive (false);
+				UIPanel.SetActive (true);
 			}
 		} else {
 
@@ -93,7 +97,10 @@ public class Body : MonoBehaviour {
 				if (look != null) {
 					look.enabled = false;
 				}
-
+				UIPanel.SetActive (false);
+				if (Input.GetButton ("Fire1")) {
+					SceneManager.LoadScene (0);
+				}
 			}
 		}
 	}
