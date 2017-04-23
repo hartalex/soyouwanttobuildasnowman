@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Body : MonoBehaviour {
 
@@ -10,20 +11,38 @@ public class Body : MonoBehaviour {
 	private GameObject LeftEye = null;
 	private GameObject RightEye = null;
 	private GameObject Nose = null;
-	private GameObject Mouth1 = null;
-	private GameObject Mouth2 = null;
-	private GameObject Mouth3 = null;
-	private GameObject Mouth4 = null;
-	private GameObject Mouth5 = null;
+	private GameObject Mouth = null;
 
 	private GameObject Scarf = null;
-	private GameObject Button1 = null;
-	private GameObject Button2 = null;
-	private GameObject Button3 = null;
-	private GameObject Button4 = null;
+	private GameObject LeftMitten = null;
+	private GameObject RightMitten = null;
 
 	public GameObject HatPosition = null;
 	public GameObject HatText = null;
+
+	public GameObject LeftEyePosition = null;
+	public GameObject LeftEyeText = null;
+
+	public GameObject RightEyePosition = null;
+	public GameObject RightEyeText = null;
+
+	public GameObject NosePosition = null;
+	public GameObject NoseText = null;
+
+	public GameObject MouthPosition = null;
+	public GameObject MouthText = null;
+
+	public GameObject ScarfPosition = null;
+	public GameObject ScarfText = null;
+
+	public GameObject LeftMittenPosition = null;
+	public GameObject LeftMittenText = null;
+
+	public GameObject RightMittenPosition = null;
+	public GameObject RightMittenText = null;
+
+	public GameObject YouWinText = null;
+	public GameObject MainCamera = null;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +52,22 @@ public class Body : MonoBehaviour {
 	void FixedUpdate () {
 		if (isComplete()) {
 			// You WIN
+			//MainCamera
+			YouWinText.SetActive(true);
+
+			Look cameraLook = MainCamera.GetComponent<Look> ();
+			if (cameraLook != null) {
+				cameraLook.enabled = false;
+			}
+			CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
+			if (cameraOrbit != null) {
+				cameraOrbit.enabled = true;
+			}
+			Look look = this.GetComponent<Look> ();
+			if (look != null) {
+				look.enabled = false;
+			}
+
 		}
 	}
 
@@ -41,16 +76,10 @@ public class Body : MonoBehaviour {
 			LeftEye != null &&
 			RightEye != null &&
 			Nose != null &&
-			Mouth1 != null &&
-			Mouth2 != null &&
-			Mouth3 != null &&
-			Mouth4 != null &&
-			Mouth5 != null &&
+			Mouth != null &&
 			Scarf != null &&
-			Button1 != null &&
-			Button2 != null &&
-			Button3 != null &&
-			Button4 != null);
+			LeftMitten != null &&
+			RightMitten != null);
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -59,15 +88,84 @@ public class Body : MonoBehaviour {
 		if (obj != null) {
 			BodyPart bodyPart = obj.GetComponent<BodyPart> ();
 			if (bodyPart != null) {
-				if (bodyPart.bodyPartType == BodyPartType.Hat) {
+				switch (bodyPart.bodyPartType) {
+				case BodyPartType.Hat:
 					if (this.Hat == null) {
 						this.Hat = obj;
 						AssignGameObject (obj, HatPosition);
-						HatText.SetActive (false);
+						Text script = HatText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
 					}
-				
+					break;
+				case BodyPartType.EyeNose:
+					if (this.LeftEye == null) {
+						this.LeftEye = obj;
+						AssignGameObject (obj, LeftEyePosition);
+						Text script = LeftEyeText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					} else if (this.LeftEye != obj && this.RightEye == null) {
+						this.RightEye = obj;
+						AssignGameObject (obj, RightEyePosition);
+						Text script = RightEyeText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					} else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null) {
+						this.Nose = obj;
+						AssignGameObject (obj, NosePosition);
+						Text script = NoseText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					}
+					break;
+				case BodyPartType.Mouth:
+					if (this.Mouth == null) {
+						this.Mouth = obj;
+						AssignGameObject (obj, MouthPosition);
+						Text script = MouthText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					}
+					break;
+				case BodyPartType.Scarf:
+					if (this.Scarf == null) {
+						this.Scarf = obj;
+						AssignGameObject (obj, ScarfPosition);
+						Text script = ScarfText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					}
+					break;
+				case BodyPartType.Mitten:
+					if (this.LeftMitten == null) {
+						this.LeftMitten = obj;
+						AssignGameObject (obj, LeftMittenPosition);
+						Text script = LeftMittenText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+					} else if (this.LeftMitten != obj && this.RightMitten == null) {
+						this.RightMitten = obj;
+						AssignGameObject (obj, RightMittenPosition);
+						Text script = RightMittenText.GetComponent<Text> ();
+						if (script != null) {
+							script.color = Color.gray;
+						}
+
+					}
+					break;
 				}
 			}
+
+
+
 		}
 	}
 
