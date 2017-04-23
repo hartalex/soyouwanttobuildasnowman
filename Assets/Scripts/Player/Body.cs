@@ -178,6 +178,7 @@ public class Body : MonoBehaviour {
 						if (script != null) {
 							script.color = Color.gray;
 						}
+						obj.transform.localRotation = new Quaternion(0f,0.9f,0f,1f);
 					} else if (this.LeftMitten != obj && this.RightMitten == null) {
 						this.RightMitten = obj;
 						AssignGameObject (obj, RightMittenPosition);
@@ -185,7 +186,7 @@ public class Body : MonoBehaviour {
 						if (script != null) {
 							script.color = Color.gray;
 						}
-
+						obj.transform.localRotation = new Quaternion(0f,-0.9f,0f,1f);
 					}
 					break;
 				}

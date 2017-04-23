@@ -18,7 +18,7 @@ public class CameraOrbit : MonoBehaviour {
 
 	void LateUpdate()
 	{
-		offsetX = Quaternion.AngleAxis (1 * turnSpeed, Vector3.up) * offsetX;
+		offsetX = Quaternion.AngleAxis (-1 * turnSpeed, Vector3.up) * offsetX;
 		transform.position = player.position + offsetX; 
 		transform.LookAt(player.position);
 	}
