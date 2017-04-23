@@ -79,12 +79,12 @@ public class Body : MonoBehaviour {
 				UIPanel.SetActive (true);
 			}
 		} else {
-
+			https://itch.io/docs/creators/html5
 			if (isComplete ()) {
 				// You WIN
 				//MainCamera
 				YouWinText.SetActive (true);
-
+				MainCamera.transform.localRotation = new Quaternion (0f, 1.2f, 0f, 1f);
 				Look cameraLook = MainCamera.GetComponent<Look> ();
 				if (cameraLook != null) {
 					cameraLook.enabled = false;
