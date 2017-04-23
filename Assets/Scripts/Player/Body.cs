@@ -198,9 +198,9 @@ public class Body : MonoBehaviour {
 
 	void AssignGameObject(GameObject obj, GameObject parent) {
 		//Vector3 scale = obj.transform.localScale;
-		
+		Quaternion rotation = obj.transform.localRotation;
 		obj.transform.parent = parent.transform;
-		obj.transform.rotation = new Quaternion ();
+		obj.transform.localRotation = rotation;
 		obj.transform.localPosition = new Vector3 ();
 
 		BodyPart bodyPart = obj.GetComponent<BodyPart> ();
