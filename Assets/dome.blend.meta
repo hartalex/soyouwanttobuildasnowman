@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a85ed23f49bff4103afcce59a0155aa6
-timeCreated: 1492860576
+guid: fd414471f7f7546ecbca28e297e7fb4f
+timeCreated: 1495505448
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,9 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Dome
+    4300000: Sphere
+    7400000: Default Take
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,7 +76,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
