@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43846762, g: 0.48655343, b: 0.56682694, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846732, g: 0.48655313, b: 0.56682646, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1325,6 +1325,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 427517738}
+  - component: {fileID: 427517739}
   m_Layer: 0
   m_Name: LeftEyePosition
   m_TagString: Untagged
@@ -1345,6 +1346,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427517739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 427517737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 1
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 427517737}
+  UIText: {fileID: 786979976}
 --- !u!1001 &436589004
 Prefab:
   m_ObjectHideFlags: 0
@@ -3136,6 +3152,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 772126026}
+  - component: {fileID: 772126027}
   m_Layer: 0
   m_Name: NosePosition
   m_TagString: Untagged
@@ -3156,6 +3173,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &772126027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772126025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 1
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 772126025}
+  UIText: {fileID: 437354680}
 --- !u!1001 &777910499
 Prefab:
   m_ObjectHideFlags: 0
@@ -3639,6 +3671,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 898800610}
+  - component: {fileID: 898800611}
   m_Layer: 0
   m_Name: ScarfPosition
   m_TagString: Untagged
@@ -3659,6 +3692,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898800611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898800609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 3
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 898800609}
+  UIText: {fileID: 2076083054}
 --- !u!1 &901298866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3698,6 +3746,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 902430153}
+  - component: {fileID: 902430154}
   m_Layer: 0
   m_Name: LeftArmPosition
   m_TagString: Untagged
@@ -3718,6 +3767,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902430154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 902430152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 4
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 902430152}
+  UIText: {fileID: 348513714}
 --- !u!1 &909297339 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0dd345bf5ee2c46fc9702943949263ab, type: 3}
@@ -4860,6 +4924,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1386283435}
+  - component: {fileID: 1386283436}
   m_Layer: 0
   m_Name: Mouth1Position
   m_TagString: Untagged
@@ -4880,6 +4945,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386283436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386283434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 2
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 1386283434}
+  UIText: {fileID: 1711506966}
 --- !u!1001 &1394766920
 Prefab:
   m_ObjectHideFlags: 0
@@ -4946,6 +5026,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1404306832}
+  - component: {fileID: 1404306833}
   m_Layer: 0
   m_Name: RightArmPosition
   m_TagString: Untagged
@@ -4966,6 +5047,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1404306833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1404306831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 4
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 1404306831}
+  UIText: {fileID: 692761738}
 --- !u!4 &1405339814 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4014412004421820, guid: 5eba476cf22c14de59e72ec643dd91dc,
@@ -5405,13 +5501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HatEquipmentPosition: {fileID: 1900199994}
-  LeftEyeEquipmentPosition: {fileID: 0}
-  RightEyeEquipmentPosition: {fileID: 0}
-  NoseEquipmentPosition: {fileID: 0}
-  MouthEquipmentPosition: {fileID: 0}
-  ScarfEquipmentPosition: {fileID: 0}
-  LeftMittenEquipmentPosition: {fileID: 0}
-  RightMittenEquipmentPosition: {fileID: 0}
+  LeftEyeEquipmentPosition: {fileID: 427517739}
+  RightEyeEquipmentPosition: {fileID: 1684951909}
+  NoseEquipmentPosition: {fileID: 772126027}
+  MouthEquipmentPosition: {fileID: 1386283436}
+  ScarfEquipmentPosition: {fileID: 898800611}
+  LeftMittenEquipmentPosition: {fileID: 902430154}
+  RightMittenEquipmentPosition: {fileID: 1404306833}
   LeftEyePosition: {fileID: 427517737}
   LeftEyeText: {fileID: 786979976}
   RightEyePosition: {fileID: 1684951907}
@@ -5949,6 +6045,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1684951908}
+  - component: {fileID: 1684951909}
   m_Layer: 0
   m_Name: RightEyePosition
   m_TagString: Untagged
@@ -5969,6 +6066,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1684951909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1684951907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 1
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 1684951907}
+  UIText: {fileID: 557977149}
 --- !u!1 &1706062409
 GameObject:
   m_ObjectHideFlags: 0
