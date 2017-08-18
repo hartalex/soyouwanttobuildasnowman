@@ -3532,6 +3532,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5eba476cf22c14de59e72ec643dd91dc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &871615660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 871615662}
+  - component: {fileID: 871615661}
+  m_Layer: 0
+  m_Name: GameState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &871615661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871615660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675e7fb4eff85054b929a38cffc48485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YouWinText: {fileID: 1771440967}
+  StartText: {fileID: 1862367085}
+  MainCamera: {fileID: 662051619}
+  UIPanel: {fileID: 455240224}
+  Body: {fileID: 1603673299}
+--- !u!4 &871615662
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871615660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &884370696 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 7188626596eb74d3dbaca94e2e37b38d, type: 3}
@@ -5359,8 +5404,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182d3e7836f9446718c3c373411e42cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HatPosition: {fileID: 1900199992}
-  HatText: {fileID: 1453971374}
+  HatEquipmentPosition: {fileID: 1900199994}
+  LeftEyeEquipmentPosition: {fileID: 0}
+  RightEyeEquipmentPosition: {fileID: 0}
+  NoseEquipmentPosition: {fileID: 0}
+  MouthEquipmentPosition: {fileID: 0}
+  ScarfEquipmentPosition: {fileID: 0}
+  LeftMittenEquipmentPosition: {fileID: 0}
+  RightMittenEquipmentPosition: {fileID: 0}
   LeftEyePosition: {fileID: 427517737}
   LeftEyeText: {fileID: 786979976}
   RightEyePosition: {fileID: 1684951907}
@@ -5375,10 +5426,6 @@ MonoBehaviour:
   LeftMittenText: {fileID: 348513714}
   RightMittenPosition: {fileID: 1404306831}
   RightMittenText: {fileID: 692761738}
-  YouWinText: {fileID: 1771440967}
-  StartText: {fileID: 1862367085}
-  MainCamera: {fileID: 662051619}
-  UIPanel: {fileID: 455240224}
 --- !u!114 &1603673305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9813,6 +9860,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1900199993}
+  - component: {fileID: 1900199994}
   m_Layer: 0
   m_Name: HatPosition
   m_TagString: Untagged
@@ -9833,6 +9881,21 @@ Transform:
   m_Father: {fileID: 2069355349}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900199994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900199992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b136fd3e22bf844caffc36bfa5cc30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodyPartType: 0
+  Object: {fileID: 0}
+  ObjectPosition: {fileID: 1900199992}
+  UIText: {fileID: 1453971374}
 --- !u!1001 &1940710473
 Prefab:
   m_ObjectHideFlags: 0
