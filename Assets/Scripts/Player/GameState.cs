@@ -40,7 +40,12 @@ public class GameState : MonoBehaviour
 		if (look != null) {
 			look.enabled = true;
 		}
-		MainCamera.transform.localPosition = new Vector3 (0f, 1f, 0.75f);
+        SnowBallShooter snowBallShooter = MainCamera.GetComponent<SnowBallShooter>();
+        if (snowBallShooter != null)
+        {
+            snowBallShooter.enabled = true;
+        }
+        MainCamera.transform.localPosition = new Vector3 (0f, 1f, 0.75f);
 		MainCamera.transform.rotation = new Quaternion();
 		StartText.SetActive (false);
 		UIPanel.SetActive (true);
@@ -64,7 +69,12 @@ public class GameState : MonoBehaviour
 		if (look != null) {
 			look.enabled = false;
 		}
-		UIPanel.SetActive (false);
+        SnowBallShooter snowBallShooter = MainCamera.GetComponent<SnowBallShooter>();
+        if (snowBallShooter != null)
+        {
+            snowBallShooter.enabled = false;
+        }
+        UIPanel.SetActive (false);
 		if (Input.GetButton ("Fire1")) {
 			SceneManager.LoadScene (0);
 		}
