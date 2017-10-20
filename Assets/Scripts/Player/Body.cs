@@ -18,35 +18,37 @@ public class Body : MonoBehaviour {
 	// private GameObject Face
 	private GameObject LeftEye = null;
 	public GameObject LeftEyePosition = null;
-	public GameObject LeftEyeText = null;
+	public Toggle LeftEyeToggle = null;
 
 	private GameObject RightEye = null;
 	public GameObject RightEyePosition = null;
-	public GameObject RightEyeText = null;
+	public Toggle RightEyeToggle = null;
 
 	// Nose
 	private GameObject Nose = null;
 	public GameObject NosePosition = null;
-	public GameObject NoseText = null;
+	public Toggle NoseToggle = null;
 
 	// Mouth
 	private GameObject Mouth = null;
 	public GameObject MouthPosition = null;
-	public GameObject MouthText = null;
+	public Toggle MouthToggle = null;
 
 	// Neck
 	private GameObject Scarf = null;
 	public GameObject ScarfPosition = null;
-	public GameObject ScarfText = null;
+	public Toggle ScarfToggle = null;
 
 	// Hands
 	private GameObject LeftMitten = null;
 	public GameObject LeftMittenPosition = null;
-	public GameObject LeftMittenText = null;
+	public Toggle LeftMittenToggle = null;
 
 	private GameObject RightMitten = null;
 	public GameObject RightMittenPosition = null;
-	public GameObject RightMittenText = null;
+	public Toggle RightMittenToggle = null;
+
+	public Toggle HatToggle = null;
 
 	 public bool isComplete() {
 		return (HatEquipmentPosition.Object != null &&
@@ -63,109 +65,109 @@ public class Body : MonoBehaviour {
 	{
 		GameObject obj = collision.gameObject;
 		if (obj != null) {
-			BodyPart bodyPart = obj.GetComponent<BodyPart> ();
-			if (bodyPart != null) {
-				switch (bodyPart.bodyPartType) {
-				case BodyPartType.Hat:
-					if (HatEquipmentPosition.Object == null) {
-						HatEquipmentPosition.Object = obj;
-						EquipGameObject (obj, HatEquipmentPosition.ObjectPosition);
-						Text script = HatEquipmentPosition.UIText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
+			BodyPart[] bodyParts = obj.GetComponents<BodyPart> ();
+			foreach (BodyPart bodyPart in bodyParts) {
+				BodyPartHover bph = obj.GetComponent<BodyPartHover> ();
+				if (bph != null && bph.isEnabled) {
+				if (bodyPart != null) {
+					switch (bodyPart.bodyPartType) {
+					case BodyPartType.Hat:
+						if (HatEquipmentPosition.Object == null) {
+							HatEquipmentPosition.Object = obj;
+							EquipGameObject (bodyPart, HatEquipmentPosition.ObjectPosition);
+							if (HatToggle != null) {
+								HatToggle.isOn = true;
+							}
 						}
-					}
-					break;
-				case BodyPartType.EyeNose:
+						break;
+					case BodyPartType.EyeNose:
 
-
-					if (this.LeftEye == null) {
-						this.LeftEye = obj;
-						EquipGameObject (obj, LeftEyePosition);
-						Text script = LeftEyeText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
+						if (this.LeftEye == null) {
+							this.LeftEye = obj;
+							EquipGameObject (bodyPart, LeftEyePosition);
+							if (LeftEyeToggle != null) {
+								LeftEyeToggle.isOn = true;
+							}
+						} else if (this.LeftEye != obj && this.RightEye == null) {
+							this.RightEye = obj;
+							EquipGameObject (bodyPart, RightEyePosition);
+							if (RightEyeToggle != null) {
+								RightEyeToggle.isOn = true;
+							}
+						} else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null) {
+							this.Nose = obj;
+							EquipGameObject (bodyPart, NosePosition);
+							if (NoseToggle != null) {
+								NoseToggle.isOn = true;
+							}
 						}
-					} else if (this.LeftEye != obj && this.RightEye == null) {
-						this.RightEye = obj;
-						EquipGameObject (obj, RightEyePosition);
-						Text script = RightEyeText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
+						break;
+					case BodyPartType.Mouth:
+						if (this.Mouth == null) {
+							this.Mouth = obj;
+							EquipGameObject (bodyPart, MouthPosition);
+							if (MouthToggle != null) {
+								MouthToggle.isOn = true;
+							}
 						}
-					} else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null) {
-						this.Nose = obj;
-						EquipGameObject (obj, NosePosition);
-						Text script = NoseText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
+						break;
+					case BodyPartType.Scarf:
+						if (this.Scarf == null) {
+							this.Scarf = obj;
+							EquipGameObject (bodyPart, ScarfPosition);
+							if (ScarfToggle != null) {
+								ScarfToggle.isOn = true;
+							}
 						}
+						break;
+					case BodyPartType.Mitten:
+						if (this.LeftMitten == null) {
+							this.LeftMitten = obj;
+							EquipGameObject (bodyPart, LeftMittenPosition);
+							if (LeftMittenToggle != null) {
+								LeftMittenToggle.isOn = true;
+							}
+							// Rotate Mitten so Thumb is up.
+							obj.transform.localRotation = new Quaternion (0f, 0.9f, 0f, 1f);
+						} else if (this.LeftMitten != obj && this.RightMitten == null) {
+							this.RightMitten = obj;
+							EquipGameObject (bodyPart, RightMittenPosition);
+							if (RightMittenToggle != null) {
+								RightMittenToggle.isOn = true;
+							}
+							// Rotate Mitten so Thumb is up.
+							obj.transform.localRotation = new Quaternion (0f, -0.9f, 0f, 1f);
+						}
+						break;
 					}
-					break;
-				case BodyPartType.Mouth:
-					if (this.Mouth == null) {
-						this.Mouth = obj;
-						EquipGameObject (obj, MouthPosition);
-						Text script = MouthText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
-						}
-					}
-					break;
-				case BodyPartType.Scarf:
-					if (this.Scarf == null) {
-						this.Scarf = obj;
-						EquipGameObject (obj, ScarfPosition);
-						Text script = ScarfText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
-						}
-					}
-					break;
-				case BodyPartType.Mitten:
-					if (this.LeftMitten == null) {
-						this.LeftMitten = obj;
-						EquipGameObject (obj, LeftMittenPosition);
-						Text script = LeftMittenText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
-						}
-						// Rotate Mitten so Thumb is up.
-						obj.transform.localRotation = new Quaternion(0f,0.9f,0f,1f);
-					} else if (this.LeftMitten != obj && this.RightMitten == null) {
-						this.RightMitten = obj;
-						EquipGameObject (obj, RightMittenPosition);
-						Text script = RightMittenText.GetComponent<Text> ();
-						if (script != null) {
-							script.color = Color.gray;
-						}
-						// Rotate Mitten so Thumb is up.
-						obj.transform.localRotation = new Quaternion(0f,-0.9f,0f,1f);
-					}
-					break;
 				}
 			}
-
-
-
+		}
 		}
 	}
+	
 
 	// Positions the gameobject on the player
-	void EquipGameObject(GameObject obj, GameObject parent) {
+	void EquipGameObject(BodyPart obj, GameObject parent) {
 		Quaternion rotation = obj.transform.localRotation;
 		obj.transform.parent = parent.transform;
-		obj.transform.localRotation = rotation;
+
 		obj.transform.localPosition = new Vector3 ();
 
-		BodyPart bodyPart = obj.GetComponent<BodyPart> ();
-		if (bodyPart != null) {
-			bodyPart.isEnabled = false;
+		Vector3 newRotation = rotation.eulerAngles;
+		newRotation.x += obj.Rotation.x;
+		newRotation.y += obj.Rotation.y;
+		newRotation.z += obj.Rotation.z;
+		rotation.eulerAngles = newRotation;
+		BodyPartHover bph = obj.GetComponent<BodyPartHover> ();
+		if (bph != null) {
+			bph.isEnabled = false;
 		}
 
 		Rigidbody rigidbody = obj.GetComponent<Rigidbody> ();
 		if (rigidbody != null) {
 			rigidbody.isKinematic = true;
 		}
+			obj.transform.localRotation = rotation;
 	}
 }
