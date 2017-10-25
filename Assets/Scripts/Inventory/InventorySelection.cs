@@ -71,9 +71,15 @@ public class InventorySelection : MonoBehaviour
             GameObject myref = Instantiate(go, inspectorPosition.transform);
             myref.AddComponent<Dnd>();
             Rotate rotate = myref.AddComponent<Rotate>();
-            rotate.Y = true;
+            rotate.X = true;
             rotate.Z = true;
-   
+            rotate.force = 15;
+            BodyPartHover bph = myref.GetComponent<BodyPartHover>();
+            if (bph != null)
+            {
+                bph.isEnabled = false;
+            }
+
             text.color = Color.yellow;
             lastSelection = text;
         }

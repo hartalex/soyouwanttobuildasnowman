@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour {
 
     public new Camera camera = null;
-    public UI.Text ActionPromptText = null;
+    public Text ActionPromptText = null;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class Pickup : MonoBehaviour {
         Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
         Ray ray = camera.ScreenPointToRay(point);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 5))
+        if (Physics.Raycast(ray, out hit, 10))
         {
             InventoryObject io = hit.collider.gameObject.GetComponent<InventoryObject>();
             if (io != null)

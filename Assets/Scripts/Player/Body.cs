@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Body : MonoBehaviour {
 
+    public bool isInventory = false;
 	// Head
 	public EquipmentPosition HatEquipmentPosition = null;
 	public EquipmentPosition LeftEyeEquipmentPosition = null;
@@ -16,35 +17,35 @@ public class Body : MonoBehaviour {
 	public EquipmentPosition RightMittenEquipmentPosition = null;
 
 	// private GameObject Face
-	private GameObject LeftEye = null;
+
 	public GameObject LeftEyePosition = null;
 	public Toggle LeftEyeToggle = null;
 
-	private GameObject RightEye = null;
+
 	public GameObject RightEyePosition = null;
 	public Toggle RightEyeToggle = null;
 
 	// Nose
-	private GameObject Nose = null;
+
 	public GameObject NosePosition = null;
 	public Toggle NoseToggle = null;
 
 	// Mouth
-	private GameObject Mouth = null;
+	
 	public GameObject MouthPosition = null;
 	public Toggle MouthToggle = null;
 
 	// Neck
-	private GameObject Scarf = null;
+
 	public GameObject ScarfPosition = null;
 	public Toggle ScarfToggle = null;
 
 	// Hands
-	private GameObject LeftMitten = null;
+
 	public GameObject LeftMittenPosition = null;
 	public Toggle LeftMittenToggle = null;
 
-	private GameObject RightMitten = null;
+
 	public GameObject RightMittenPosition = null;
 	public Toggle RightMittenToggle = null;
 
@@ -68,49 +69,123 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetHat(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.Hat)
+                {
+                    EquipGameObject(bodyPart, HatEquipmentPosition.ObjectPosition);
+                }
+            }
         }
         if (EquipedItems.GetLeftEye() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftEye(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.EyeNose)
+                {
+                    EquipGameObject(bodyPart, LeftEyePosition);
+                }
+            }
         }
         if (EquipedItems.GetRightEye() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightEye(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.EyeNose)
+                {
+                    EquipGameObject(bodyPart, RightEyePosition);
+                }
+            }
         }
         if (EquipedItems.GetNose() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNose(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.EyeNose)
+                {
+                    EquipGameObject(bodyPart, NosePosition);
+                }
+            }
         }
         if (EquipedItems.GetMouth() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetMouth(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.Mouth)
+                {
+                    EquipGameObject(bodyPart, MouthPosition);
+                }
+            }
         }
         if (EquipedItems.GetNeck() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNeck(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.Scarf)
+                {
+                    EquipGameObject(bodyPart, ScarfPosition);
+                }
+            }
         }
         if (EquipedItems.GetLeftHand() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftHand(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.Mitten)
+                {
+                    EquipGameObject(bodyPart, LeftMittenPosition);
+                }
+            }
         }
         if (EquipedItems.GetRightHand() != null)
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightHand(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            TryEquipGameObject(ins);
+            ins.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
+            Dnd dnd = ins.AddComponent<Dnd>();
+            dnd.isEquipped = true;
+            BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                if (bodyPart != null && bodyPart.bodyPartType == BodyPartType.Mitten)
+                {
+                    EquipGameObject(bodyPart, RightMittenPosition);
+                }
+            }
         }
     }
 
@@ -123,147 +198,134 @@ public class Body : MonoBehaviour {
             foreach (BodyPart bodyPart in bodyParts)
             {
                 BodyPartHover bph = obj.GetComponent<BodyPartHover>();
-                if (bph != null && bph.isEnabled)
+                if (bph != null)
                 {
                     if (bodyPart != null)
                     {
-                        switch (bodyPart.bodyPartType)
+                        InventoryObject io = obj.GetComponent<InventoryObject>();
+                        if (io != null)
                         {
-                            case BodyPartType.Hat:
-                                if (HatEquipmentPosition.Object == null)
-                                {
-                                    HatEquipmentPosition.Object = obj;
-                                    EquipGameObject(bodyPart, HatEquipmentPosition.ObjectPosition);
-                                    if (HatToggle != null)
+                            switch (bodyPart.bodyPartType)
+                            {
+                                case BodyPartType.Hat:
+                                    if (EquipedItems.GetHat() == null)
                                     {
-                                        HatToggle.isOn = true;
+                                        HatEquipmentPosition.Object = obj;
+                                        EquipGameObject(bodyPart, HatEquipmentPosition.ObjectPosition);
+                                        if (HatToggle != null)
+                                        {
+                                            HatToggle.isOn = true;
+                                        }
+                                       
+                                            EquipedItems.EquipHat(io.ResourceName);
+                                      
+                                        retval = true;
                                     }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
-                                    {
-                                        EquipedItems.EquipHat(io.ResourceName);
-                                    }
-                                    retval = true;
-                                }
-                                break;
-                            case BodyPartType.EyeNose:
+                                    break;
+                                case BodyPartType.EyeNose:
 
-                                if (this.LeftEye == null)
-                                {
-                                    this.LeftEye = obj;
-                                    EquipGameObject(bodyPart, LeftEyePosition);
-                                    if (LeftEyeToggle != null)
+                                    if (EquipedItems.GetLeftEye() == null)
                                     {
-                                        LeftEyeToggle.isOn = true;
+                            
+                                        EquipGameObject(bodyPart, LeftEyePosition);
+                                        if (LeftEyeToggle != null)
+                                        {
+                                            LeftEyeToggle.isOn = true;
+                                        }
+                                       
+                                            EquipedItems.EquipLeftEye(io.ResourceName);
+                                        
+                                        retval = true;
                                     }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
+                                    else if (EquipedItems.GetLeftEye() != io.ResourceName && EquipedItems.GetRightEye() == null)
                                     {
-                                        EquipedItems.EquipLeftEye(io.ResourceName);
+                        
+                                        EquipGameObject(bodyPart, RightEyePosition);
+                                        if (RightEyeToggle != null)
+                                        {
+                                            RightEyeToggle.isOn = true;
+                                        }
+                                        
+                                            EquipedItems.EquipRightEye(io.ResourceName);
+                                       
+                                        retval = true;
                                     }
-                                    retval = true;
-                                }
-                                else if (this.LeftEye != obj && this.RightEye == null)
-                                {
-                                    this.RightEye = obj;
-                                    EquipGameObject(bodyPart, RightEyePosition);
-                                    if (RightEyeToggle != null)
+                                    else if (EquipedItems.GetLeftEye() != io.ResourceName && EquipedItems.GetRightEye() != io.ResourceName && EquipedItems.GetNose() == null)
                                     {
-                                        RightEyeToggle.isOn = true;
+               
+                                        EquipGameObject(bodyPart, NosePosition);
+                                        if (NoseToggle != null)
+                                        {
+                                            NoseToggle.isOn = true;
+                                        }
+                                       
+                                            EquipedItems.EquipNose(io.ResourceName);
+                                      
+                                        retval = true;
                                     }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
+                                    break;
+                                case BodyPartType.Mouth:
+                                    if (EquipedItems.GetMouth() == null)
                                     {
-                                        EquipedItems.EquipRightEye(io.ResourceName);
+                                    
+                                        EquipGameObject(bodyPart, MouthPosition);
+                                        if (MouthToggle != null)
+                                        {
+                                            MouthToggle.isOn = true;
+                                        }
+                                       
+                                            EquipedItems.EquipMouth(io.ResourceName);
+                                      
+                                        retval = true;
                                     }
-                                    retval = true;
-                                }
-                                else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null)
-                                {
-                                    this.Nose = obj;
-                                    EquipGameObject(bodyPart, NosePosition);
-                                    if (NoseToggle != null)
+                                    break;
+                                case BodyPartType.Scarf:
+                                    if (EquipedItems.GetNeck() == null)
                                     {
-                                        NoseToggle.isOn = true;
+                  
+                                        EquipGameObject(bodyPart, ScarfPosition);
+                                        if (ScarfToggle != null)
+                                        {
+                                            ScarfToggle.isOn = true;
+                                        }
+                                       EquipedItems.EquipNeck(io.ResourceName);
+                                       
+                                        retval = true;
                                     }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
+                                    break;
+                                case BodyPartType.Mitten:
+                                    if (EquipedItems.GetLeftHand() == null)
                                     {
-                                        EquipedItems.EquipNose(io.ResourceName);
+                                
+                                        EquipGameObject(bodyPart, LeftMittenPosition);
+                                        if (LeftMittenToggle != null)
+                                        {
+                                            LeftMittenToggle.isOn = true;
+                                        }
+                                       
+                                            EquipedItems.EquipLeftHand(io.ResourceName);
+                                      
+                                        // Rotate Mitten so Thumb is up.
+                                        obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
+                                        retval = true;
                                     }
-                                    retval = true;
-                                }
-                                break;
-                            case BodyPartType.Mouth:
-                                if (this.Mouth == null)
-                                {
-                                    this.Mouth = obj;
-                                    EquipGameObject(bodyPart, MouthPosition);
-                                    if (MouthToggle != null)
+                                    else if (EquipedItems.GetLeftHand() != io.ResourceName && EquipedItems.GetRightHand() == null)
                                     {
-                                        MouthToggle.isOn = true;
-                                    }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
-                                    {
-                                        EquipedItems.EquipMouth(io.ResourceName);
-                                    }
-                                    retval = true;
-                                }
-                                break;
-                            case BodyPartType.Scarf:
-                                if (this.Scarf == null)
-                                {
-                                    this.Scarf = obj;
-                                    EquipGameObject(bodyPart, ScarfPosition);
-                                    if (ScarfToggle != null)
-                                    {
-                                        ScarfToggle.isOn = true;
-                                    }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
-                                    {
-                                        EquipedItems.EquipNeck(io.ResourceName);
-                                    }
-                                    retval = true;
-                                }
-                                break;
-                            case BodyPartType.Mitten:
-                                if (this.LeftMitten == null)
-                                {
-                                    this.LeftMitten = obj;
-                                    EquipGameObject(bodyPart, LeftMittenPosition);
-                                    if (LeftMittenToggle != null)
-                                    {
-                                        LeftMittenToggle.isOn = true;
-                                    }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
-                                    {
-                                        EquipedItems.EquipLeftHand(io.ResourceName);
-                                    }
-                                    // Rotate Mitten so Thumb is up.
-                                    obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
-                                    retval = true;
-                                }
-                                else if (this.LeftMitten != obj && this.RightMitten == null)
-                                {
-                                    this.RightMitten = obj;
-                                    EquipGameObject(bodyPart, RightMittenPosition);
-                                    if (RightMittenToggle != null)
-                                    {
-                                        RightMittenToggle.isOn = true;
-                                    }
-                                    InventoryObject io = obj.GetComponent<InventoryObject>();
-                                    if (io != null)
-                                    {
+                                        
+                                        EquipGameObject(bodyPart, RightMittenPosition);
+                                        if (RightMittenToggle != null)
+                                        {
+                                            RightMittenToggle.isOn = true;
+                                        }
+
                                         EquipedItems.EquipRightHand(io.ResourceName);
+
+                                        // Rotate Mitten so Thumb is up.
+                                        obj.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
+                                        retval = true;
                                     }
-                                    // Rotate Mitten so Thumb is up.
-                                    obj.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
-                                    retval = true;
-                                }
-                                break;
+                                    break;
+                            }
                         }
                     }
                 }
