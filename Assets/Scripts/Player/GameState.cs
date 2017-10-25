@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
 	public GameObject StartText = null;
 	public GameObject MainCamera = null;
 	public GameObject Body = null;
+    public GameObject CrossHairs = null;
 	private bool isStartScreen = true;
 
     void Start()
@@ -15,7 +16,9 @@ public class GameState : MonoBehaviour
         if (Inventory.GetStarted())
         {
             SetPlayingState();
-       
+            Body.gameObject.transform.localPosition = Inventory.GetPlayerPosition();
+            Body.gameObject.transform.localRotation = Inventory.GetPlayerRotation();
+            MainCamera.transform.localRotation = Inventory.GetCameraRotation();
         }
     }
 
@@ -34,8 +37,12 @@ public class GameState : MonoBehaviour
 				SetEndState ();
 			}else
             {
-                if (Input.GetButton("Menu"))
+                if (Input.GetButton("Inventory"))
                 {
+                    Inventory.SetPlayerPosition(Body.gameObject.transform.localPosition);
+                    Inventory.SetPlayerRotation(Body.gameObject.transform.localRotation);
+                    Inventory.SetCameraRotation(MainCamera.transform.localRotation);
+                
                     SceneManager.LoadScene(1);
                 }
             }
@@ -65,8 +72,10 @@ public class GameState : MonoBehaviour
         MainCamera.transform.localPosition = new Vector3 (0f, 3f, 0f);
 		MainCamera.transform.localRotation = Quaternion.Euler(15, 0, 0);
 		StartText.SetActive (false);
+        CrossHairs.SetActive(true);
 
-	}
+
+    }
 
 	public void SetEndState()
 	{
@@ -91,8 +100,9 @@ public class GameState : MonoBehaviour
         {
             snowBallShooter.enabled = false;
         }
+        CrossHairs.SetActive(false);
 
-		if (Input.GetButton ("Fire1")) {
+        if (Input.GetButton ("Fire1")) {
 			SceneManager.LoadScene (0);
 		}
 	}

@@ -8,6 +8,40 @@ public static class Inventory
     private static bool started = false;
     private static IList objectstrings = new ArrayList();
     private static IList labels = new ArrayList();
+    private static Vector3 playerPosition;
+    private static Quaternion playerRotation;
+    private static Quaternion cameraRotation;
+
+
+    public static void SetPlayerPosition(Vector3 val)
+    {
+        playerPosition = val;
+    }
+
+    public static Vector3 GetPlayerPosition()
+    {
+        return playerPosition;
+    }
+
+    public static void SetPlayerRotation(Quaternion val)
+    {
+        playerRotation = val;
+    }
+
+    public static Quaternion GetPlayerRotation()
+    {
+        return playerRotation;
+    }
+
+    public static void SetCameraRotation(Quaternion val)
+    {
+        cameraRotation = val;
+    }
+
+    public static Quaternion GetCameraRotation()
+    {
+        return cameraRotation;
+    }
 
     public static void SetStarted(bool val)
     {

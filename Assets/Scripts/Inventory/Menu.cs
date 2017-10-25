@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Menu"))
+        if (Input.GetButton("Cancel") || Input.GetButton("Inventory"))
         {
             SceneManager.LoadScene(0);
         }
