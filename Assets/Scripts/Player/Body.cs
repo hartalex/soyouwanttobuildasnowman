@@ -64,88 +64,115 @@ public class Body : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		GameObject obj = collision.gameObject;
-		if (obj != null) {
-			BodyPart[] bodyParts = obj.GetComponents<BodyPart> ();
-			foreach (BodyPart bodyPart in bodyParts) {
-				BodyPartHover bph = obj.GetComponent<BodyPartHover> ();
-				if (bph != null && bph.isEnabled) {
-				if (bodyPart != null) {
-					switch (bodyPart.bodyPartType) {
-					case BodyPartType.Hat:
-						if (HatEquipmentPosition.Object == null) {
-							HatEquipmentPosition.Object = obj;
-							EquipGameObject (bodyPart, HatEquipmentPosition.ObjectPosition);
-							if (HatToggle != null) {
-								HatToggle.isOn = true;
-							}
-						}
-						break;
-					case BodyPartType.EyeNose:
-
-						if (this.LeftEye == null) {
-							this.LeftEye = obj;
-							EquipGameObject (bodyPart, LeftEyePosition);
-							if (LeftEyeToggle != null) {
-								LeftEyeToggle.isOn = true;
-							}
-						} else if (this.LeftEye != obj && this.RightEye == null) {
-							this.RightEye = obj;
-							EquipGameObject (bodyPart, RightEyePosition);
-							if (RightEyeToggle != null) {
-								RightEyeToggle.isOn = true;
-							}
-						} else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null) {
-							this.Nose = obj;
-							EquipGameObject (bodyPart, NosePosition);
-							if (NoseToggle != null) {
-								NoseToggle.isOn = true;
-							}
-						}
-						break;
-					case BodyPartType.Mouth:
-						if (this.Mouth == null) {
-							this.Mouth = obj;
-							EquipGameObject (bodyPart, MouthPosition);
-							if (MouthToggle != null) {
-								MouthToggle.isOn = true;
-							}
-						}
-						break;
-					case BodyPartType.Scarf:
-						if (this.Scarf == null) {
-							this.Scarf = obj;
-							EquipGameObject (bodyPart, ScarfPosition);
-							if (ScarfToggle != null) {
-								ScarfToggle.isOn = true;
-							}
-						}
-						break;
-					case BodyPartType.Mitten:
-						if (this.LeftMitten == null) {
-							this.LeftMitten = obj;
-							EquipGameObject (bodyPart, LeftMittenPosition);
-							if (LeftMittenToggle != null) {
-								LeftMittenToggle.isOn = true;
-							}
-							// Rotate Mitten so Thumb is up.
-							obj.transform.localRotation = new Quaternion (0f, 0.9f, 0f, 1f);
-						} else if (this.LeftMitten != obj && this.RightMitten == null) {
-							this.RightMitten = obj;
-							EquipGameObject (bodyPart, RightMittenPosition);
-							if (RightMittenToggle != null) {
-								RightMittenToggle.isOn = true;
-							}
-							// Rotate Mitten so Thumb is up.
-							obj.transform.localRotation = new Quaternion (0f, -0.9f, 0f, 1f);
-						}
-						break;
-					}
-				}
-			}
-		}
-		}
+        TryEquipGameObject(obj);
 	}
 	
+    public void TryEquipGameObject(GameObject obj)
+    {
+        if (obj != null)
+        {
+            BodyPart[] bodyParts = obj.GetComponents<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
+            {
+                BodyPartHover bph = obj.GetComponent<BodyPartHover>();
+                if (bph != null && bph.isEnabled)
+                {
+                    if (bodyPart != null)
+                    {
+                        switch (bodyPart.bodyPartType)
+                        {
+                            case BodyPartType.Hat:
+                                if (HatEquipmentPosition.Object == null)
+                                {
+                                    HatEquipmentPosition.Object = obj;
+                                    EquipGameObject(bodyPart, HatEquipmentPosition.ObjectPosition);
+                                    if (HatToggle != null)
+                                    {
+                                        HatToggle.isOn = true;
+                                    }
+                                }
+                                break;
+                            case BodyPartType.EyeNose:
+
+                                if (this.LeftEye == null)
+                                {
+                                    this.LeftEye = obj;
+                                    EquipGameObject(bodyPart, LeftEyePosition);
+                                    if (LeftEyeToggle != null)
+                                    {
+                                        LeftEyeToggle.isOn = true;
+                                    }
+                                }
+                                else if (this.LeftEye != obj && this.RightEye == null)
+                                {
+                                    this.RightEye = obj;
+                                    EquipGameObject(bodyPart, RightEyePosition);
+                                    if (RightEyeToggle != null)
+                                    {
+                                        RightEyeToggle.isOn = true;
+                                    }
+                                }
+                                else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null)
+                                {
+                                    this.Nose = obj;
+                                    EquipGameObject(bodyPart, NosePosition);
+                                    if (NoseToggle != null)
+                                    {
+                                        NoseToggle.isOn = true;
+                                    }
+                                }
+                                break;
+                            case BodyPartType.Mouth:
+                                if (this.Mouth == null)
+                                {
+                                    this.Mouth = obj;
+                                    EquipGameObject(bodyPart, MouthPosition);
+                                    if (MouthToggle != null)
+                                    {
+                                        MouthToggle.isOn = true;
+                                    }
+                                }
+                                break;
+                            case BodyPartType.Scarf:
+                                if (this.Scarf == null)
+                                {
+                                    this.Scarf = obj;
+                                    EquipGameObject(bodyPart, ScarfPosition);
+                                    if (ScarfToggle != null)
+                                    {
+                                        ScarfToggle.isOn = true;
+                                    }
+                                }
+                                break;
+                            case BodyPartType.Mitten:
+                                if (this.LeftMitten == null)
+                                {
+                                    this.LeftMitten = obj;
+                                    EquipGameObject(bodyPart, LeftMittenPosition);
+                                    if (LeftMittenToggle != null)
+                                    {
+                                        LeftMittenToggle.isOn = true;
+                                    }
+                                    // Rotate Mitten so Thumb is up.
+                                    obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
+                                }
+                                else if (this.LeftMitten != obj && this.RightMitten == null)
+                                {
+                                    this.RightMitten = obj;
+                                    EquipGameObject(bodyPart, RightMittenPosition);
+                                    if (RightMittenToggle != null)
+                                    {
+                                        RightMittenToggle.isOn = true;
+                                    }
+                                    // Rotate Mitten so Thumb is up.
+                                    obj.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
 
 	// Positions the gameobject on the player
 	void EquipGameObject(BodyPart obj, GameObject parent) {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnowBallShooter : MonoBehaviour {
 
-    private Camera camera = null;
+    private new Camera camera = null;
 
     public GameObject snowBall = null;
     public int maxDistance = 30;

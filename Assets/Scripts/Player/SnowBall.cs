@@ -7,12 +7,8 @@ public class SnowBall : MonoBehaviour
     public float speed = 10.0f;
     public GameObject snowBallExplosion = null;
     private MeshRenderer meshRenderer = null;
-    private Vector3 startposition;
     public Vector3 endposition;
     private Vector3 midpoint;
-    private Vector3 lerpedPostion;
-    float ypos = 0;
-    float yposMax = 5;
 
     void Start()
     {
@@ -24,9 +20,7 @@ public class SnowBall : MonoBehaviour
         if (meshRenderer == null)
         {
             throw new MissingComponentException("Missing meshRenderer Componenet");
-        }
-        startposition = transform.position;
-        lerpedPostion = startposition;
+        }   
     }
 
     // Update is called once per frame
