@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 5bbfd59328350b9429cd392954649006
+timeCreated: 1508867329
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _pathalbedo: {fileID: 2800000, guid: 3738c589918108240bb02966b839f167, type: 3}
+  - _icealbedo: {fileID: 2800000, guid: 68a7e165943882344afd603a1a464e18, type: 3}
+  - _snowalbedo: {fileID: 2800000, guid: 3277de7652880c545a28a81a31d4ea55, type: 3}
+  - _rockalbedo: {fileID: 2800000, guid: ff7d277dd30971c4d9160a9353c3c4d3, type: 3}
+  - _rocknormal: {fileID: 2800000, guid: 980ceac7efb8bc64e85220e5050647c5, type: 3}
+  - _snownormal: {fileID: 2800000, guid: 2194756113b0cb84fb9bc0b0a77c05ff, type: 3}
+  - _pathnormal: {fileID: 2800000, guid: 284be24a76a762b46851e56e4fe33d27, type: 3}
+  - _rockheight: {fileID: 2800000, guid: 915e30c9a2499364889ff3e575f5f419, type: 3}
+  - _snowheight: {fileID: 2800000, guid: 8a8e4b634208fab43a37bdc6e3ab2876, type: 3}
+  - _pathheight: {fileID: 2800000, guid: 1ad921cf7635cb745b73ea4a1007f87c, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
