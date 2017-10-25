@@ -63,7 +63,7 @@ public class GameState : MonoBehaviour
             snowBallShooter.enabled = true;
         }
         MainCamera.transform.localPosition = new Vector3 (0f, 1.9f, -2.26f);
-		MainCamera.transform.rotation = Quaternion.EulerAngles(15, 0, 0);
+		MainCamera.transform.rotation = Quaternion.Euler(15, 0, 0);
 		StartText.SetActive (false);
 
 	}
