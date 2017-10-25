@@ -7,21 +7,38 @@ public class GameState : MonoBehaviour
 	public GameObject YouWinText = null;
 	public GameObject StartText = null;
 	public GameObject MainCamera = null;
-	public GameObject UIPanel = null;
 	public GameObject Body = null;
 	private bool isStartScreen = true;
 
+    void Start()
+    {
+        if (Inventory.GetStarted())
+        {
+            SetPlayingState();
+       
+        }
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
+
 		// Start Scene is also the main scene, this gives snow some time to fall
 		if (isStartScreen) {
 			if (Input.GetButton ("Fire1")) {
 				SetPlayingState ();
-			}
+                Inventory.SetStarted(true);
+
+            }
 		} else {
 			if (Body.GetComponent<Body>().isComplete ()) {
 				SetEndState ();
-			}
+			}else
+            {
+                if (Input.GetButton("Menu"))
+                {
+                    SceneManager.LoadScene(1);
+                }
+            }
 		}
 	}
 
@@ -45,10 +62,10 @@ public class GameState : MonoBehaviour
         {
             snowBallShooter.enabled = true;
         }
-        MainCamera.transform.localPosition = new Vector3 (0f, 1f, 0.75f);
-		MainCamera.transform.rotation = new Quaternion();
+        MainCamera.transform.localPosition = new Vector3 (0f, 1.9f, -2.26f);
+		MainCamera.transform.rotation = Quaternion.EulerAngles(15, 0, 0);
 		StartText.SetActive (false);
-		UIPanel.SetActive (true);
+
 	}
 
 	public void SetEndState()
@@ -74,7 +91,7 @@ public class GameState : MonoBehaviour
         {
             snowBallShooter.enabled = false;
         }
-        UIPanel.SetActive (false);
+
 		if (Input.GetButton ("Fire1")) {
 			SceneManager.LoadScene (0);
 		}

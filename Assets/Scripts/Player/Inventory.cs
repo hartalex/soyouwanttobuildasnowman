@@ -1,41 +1,69 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
 
-public class Inventory : MonoBehaviour
+using System.Collections;
+using UnityEngine;
+
+public static class Inventory
 {
-    public IList objects = new ArrayList();
-    public IList labels = new ArrayList();
-    public GameObject blackHat;
-    // Use this for initialization
-    void Start()
+    private static bool started = false;
+    private static IList objectstrings = new ArrayList();
+    private static IList labels = new ArrayList();
+
+    public static void SetStarted(bool val)
     {
-        labels.Add("Hats");
-        objects.Add(blackHat);
+        started = val;
+    }
+  
+    public static bool GetStarted()
+    {
+        return started;
+    }
+    public static void addObject(string name)
+    {
+        if (!exists(name))
+        {
+            objectstrings.Add(name);
+        }
     }
 
-    public string[] ToStringArray()
+    private static bool exists(string name)
     {
-        string[] retval = new string[objects.Count + labels.Count];
+        bool retval = false;
+        int i = 0;
+        while (i < objectstrings.Count && !retval)
+        {
+            if (name == (string)objectstrings[i])
+            {
+                retval = true;
+            }
+            i++;
+        }
+        return retval;
+    }
+
+    public static string[] ToStringArray()
+    {
+        string[] retval = new string[objectstrings.Count + labels.Count];
         int i = 0;
         foreach (string io in labels)
         {
             retval[i++] = io;
         }
-        foreach (object io in objects)
+        foreach (object io in objectstrings)
         {
-            retval[i++] = ((GameObject)io).GetComponent<InventoryObject>().Name;
+            retval[i++] = (string)io;
         }
         return retval;
     }
 
-    public GameObject GetObjectByName(string name)
+    public static GameObject GetObjectByName(string name)
     {
         GameObject retval = null;
-        foreach(object io in objects)
+        foreach(object io in objectstrings)
         {
-            if (name == ((GameObject)io).GetComponent<InventoryObject>().Name)
+            if (name == (string)io)
             {
-                retval = (GameObject)io;
+                retval = (GameObject)Resources.Load((string)io, typeof(GameObject));  
             }
         }
         return retval;

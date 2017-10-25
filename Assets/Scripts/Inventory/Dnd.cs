@@ -27,9 +27,13 @@ public class Dnd : MonoBehaviour
             target = GetClickedObject(out hitInfo);
             if (target != null)
             {
-                _mouseState = true;
-                screenSpace = Camera.main.WorldToScreenPoint(target.transform.position);
-                offset = target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
+                Dnd dnd = target.GetComponent<Dnd>();
+                if (dnd != null)
+                {
+                    _mouseState = true;
+                    screenSpace = Camera.main.WorldToScreenPoint(target.transform.position);
+                    offset = target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -39,10 +43,36 @@ public class Dnd : MonoBehaviour
             target = GetClickedObject(out hitInfo);
             if (target != null)
             {
+                
                 Body body = target.GetComponent<Body>();
                 if (body != null)
                 {
-                    body.TryEquipGameObject(this.gameObject);
+                    if (body.TryEquipGameObject(this.gameObject))
+                    {
+                        this.enabled = false;
+                    }
+                    else
+                    {
+                        transform.localPosition = origin;
+                    }
+                }
+                    else
+                {
+                    body = target.GetComponentInParent<Body>();
+                    if (body != null)
+                    {
+                        if (body.TryEquipGameObject(this.gameObject))
+                        {
+                            this.enabled = false;
+                        } else
+                        {
+                            transform.localPosition = origin;
+                        }
+                    }
+                    else
+                    {
+                        transform.localPosition = origin;
+                    }
                 }
             }
             else

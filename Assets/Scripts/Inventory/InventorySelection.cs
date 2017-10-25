@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class InventorySelection : MonoBehaviour
 {
 
-    public Inventory objects;
     public GameObject contentPanel;
     public GameObject inspectorPosition;
     public Font font;
@@ -14,21 +13,19 @@ public class InventorySelection : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!setup && objects.ToStringArray().GetLength(0) > 0)
+        if (!setup && Inventory.ToStringArray().GetLength(0) > 0)
         {
             int i = 0;
 
             int width = 250;
             int height = 30;
             i = 0;
-            foreach (string str in objects.ToStringArray())
+            foreach (string str in Inventory.ToStringArray())
             {
                 GameObject ngo = new GameObject(str);
                 ngo.layer = 5;
@@ -49,10 +46,6 @@ public class InventorySelection : MonoBehaviour
                 entry.callback.AddListener((data) => { clicked(str, myText); });
                 trigger.triggers.Add(entry);
 
-                EventTrigger.Entry entry2 = new EventTrigger.Entry();
-                entry2.eventID = EventTriggerType.EndDrag;
-                entry2.callback.AddListener((data) => { dragged(data, myText); });
-                trigger.triggers.Add(entry2);
             }
             setup = true;
         }
@@ -66,16 +59,16 @@ public class InventorySelection : MonoBehaviour
    
     public void clicked(string name, Text text)
     {
-        GameObject go = objects.GetObjectByName(name);
+        GameObject go = Inventory.GetObjectByName(name);
         if (go != null)
         {
             if (lastSelection != null)
             {
                 text.color = Color.white;
             }
-            if (inspectorPosition.transform.GetChildCount() > 0)
+            if (inspectorPosition.transform.childCount > 0)
             {
-                for(int i =0; i < inspectorPosition.transform.GetChildCount(); i++)
+                for(int i =0; i < inspectorPosition.transform.childCount; i++)
                 {
                     DestroyObject(inspectorPosition.transform.GetChild(i).gameObject);
                 }

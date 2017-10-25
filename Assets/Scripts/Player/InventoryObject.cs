@@ -4,7 +4,7 @@ using System.Collections;
 public class InventoryObject : MonoBehaviour
 {
     public string Name;
-    public GameObject Prefab;
+    public string ResourceName;
 
 }
 

@@ -61,14 +61,61 @@ public class Body : MonoBehaviour {
 			RightMitten != null);
 	}
 
-	void OnCollisionEnter(Collision collision)
-	{
-		GameObject obj = collision.gameObject;
-        TryEquipGameObject(obj);
-	}
-	
-    public void TryEquipGameObject(GameObject obj)
+	void Start()
     {
+        if (EquipedItems.GetHat() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetHat(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetLeftEye() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftEye(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetRightEye() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightEye(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetNose() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNose(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetMouth() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetMouth(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetNeck() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNeck(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetLeftHand() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftHand(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+        if (EquipedItems.GetRightHand() != null)
+        {
+            GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightHand(), typeof(GameObject));
+            GameObject ins = Instantiate(obj);
+            TryEquipGameObject(ins);
+        }
+    }
+
+    public bool TryEquipGameObject(GameObject obj)
+    {
+        bool retval = false;
         if (obj != null)
         {
             BodyPart[] bodyParts = obj.GetComponents<BodyPart>();
@@ -90,6 +137,12 @@ public class Body : MonoBehaviour {
                                     {
                                         HatToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipHat(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 break;
                             case BodyPartType.EyeNose:
@@ -102,6 +155,12 @@ public class Body : MonoBehaviour {
                                     {
                                         LeftEyeToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipLeftEye(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 else if (this.LeftEye != obj && this.RightEye == null)
                                 {
@@ -111,6 +170,12 @@ public class Body : MonoBehaviour {
                                     {
                                         RightEyeToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipRightEye(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 else if (this.LeftEye != obj && this.RightEye != obj && this.Nose == null)
                                 {
@@ -120,6 +185,12 @@ public class Body : MonoBehaviour {
                                     {
                                         NoseToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipNose(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 break;
                             case BodyPartType.Mouth:
@@ -131,6 +202,12 @@ public class Body : MonoBehaviour {
                                     {
                                         MouthToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipMouth(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 break;
                             case BodyPartType.Scarf:
@@ -142,6 +219,12 @@ public class Body : MonoBehaviour {
                                     {
                                         ScarfToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipNeck(io.ResourceName);
+                                    }
+                                    retval = true;
                                 }
                                 break;
                             case BodyPartType.Mitten:
@@ -153,8 +236,14 @@ public class Body : MonoBehaviour {
                                     {
                                         LeftMittenToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipLeftHand(io.ResourceName);
+                                    }
                                     // Rotate Mitten so Thumb is up.
                                     obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
+                                    retval = true;
                                 }
                                 else if (this.LeftMitten != obj && this.RightMitten == null)
                                 {
@@ -164,8 +253,14 @@ public class Body : MonoBehaviour {
                                     {
                                         RightMittenToggle.isOn = true;
                                     }
+                                    InventoryObject io = obj.GetComponent<InventoryObject>();
+                                    if (io != null)
+                                    {
+                                        EquipedItems.EquipRightHand(io.ResourceName);
+                                    }
                                     // Rotate Mitten so Thumb is up.
                                     obj.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
+                                    retval = true;
                                 }
                                 break;
                         }
@@ -173,12 +268,15 @@ public class Body : MonoBehaviour {
                 }
             }
         }
+        return retval;
+    }
 
 	// Positions the gameobject on the player
 	void EquipGameObject(BodyPart obj, GameObject parent) {
 		Quaternion rotation = obj.transform.localRotation;
+        Vector3 scale = obj.transform.localScale;
 		obj.transform.parent = parent.transform;
-
+        obj.transform.localScale = scale;
 		obj.transform.localPosition = new Vector3 ();
 
 		Vector3 newRotation = rotation.eulerAngles;
