@@ -51,12 +51,7 @@ public class InventorySelection : MonoBehaviour
         }
 
     }
-
-    public void dragged(BaseEventData data, Text text)
-    {
-        Debug.Log("Dragged");
-    }
-   
+       
     public void clicked(string name, Text text)
     {
         GameObject go = Inventory.GetObjectByName(name);
@@ -64,7 +59,7 @@ public class InventorySelection : MonoBehaviour
         {
             if (lastSelection != null)
             {
-                text.color = Color.white;
+                lastSelection.color = Color.white;
             }
             if (inspectorPosition.transform.childCount > 0)
             {
@@ -75,9 +70,13 @@ public class InventorySelection : MonoBehaviour
             }
             GameObject myref = Instantiate(go, inspectorPosition.transform);
             myref.AddComponent<Dnd>();
+            Rotate rotate = myref.AddComponent<Rotate>();
+            rotate.Y = true;
+            rotate.Z = true;
    
             text.color = Color.yellow;
             lastSelection = text;
         }
     }
+
 }

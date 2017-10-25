@@ -9,6 +9,7 @@ public class Dnd : MonoBehaviour
     public Vector3 screenSpace;
     public Vector3 offset;
     public Vector3 origin;
+    private bool isEquipped = false;
 
     // Use this for initialization
     void Start()
@@ -49,11 +50,16 @@ public class Dnd : MonoBehaviour
                 {
                     if (body.TryEquipGameObject(this.gameObject))
                     {
-                        this.enabled = false;
+                        isEquipped = true;
+                        Rotate rotate = GetComponent<Rotate>();
+                        if (rotate != null) {
+                            rotate.enabled = false;
+                        }
                     }
                     else
                     {
                         transform.localPosition = origin;
+                        isEquipped = false;
                     }
                 }
                     else
@@ -63,21 +69,108 @@ public class Dnd : MonoBehaviour
                     {
                         if (body.TryEquipGameObject(this.gameObject))
                         {
-                            this.enabled = false;
+                            isEquipped = true;
+                            Rotate rotate = GetComponent<Rotate>();
+                            if (rotate != null)
+                            {
+                                rotate.enabled = false;
+                            }
                         } else
                         {
                             transform.localPosition = origin;
+                            isEquipped = false;
                         }
                     }
                     else
                     {
-                        transform.localPosition = origin;
+                        // InspectPosition needs  rigidbody and collider and larger hot spot
+                        // Player needs larger hotspot as well
+                        if (isEquipped && target.name == "inspectPosition")
+                        {
+                            if (target.transform.childCount > 0)
+                            {
+                                for (int i = 0; i < target.transform.childCount; i++)
+                                {
+                                    DestroyObject(target.transform.GetChild(i).gameObject);
+                                }
+                            }
+                            transform.parent = target.transform;
+                            Rotate rotate = GetComponent<Rotate>();
+                            if (rotate != null)
+                            {
+                                rotate.enabled = true;
+                            }
+                            BodyPart[] bodyParts = GetComponents<BodyPart>();
+                            InventoryObject io = GetCompoent<InventoryObject>();
+                            if (io != null) {
+                                foreach (BodyPart bodyPart in bodyParts)
+                                {
+                                    if (bp != null)
+                                    {
+                                        switch (bp.bodyPartType)
+                                        {
+                                            case BodyPartType.Hat:
+                                                if (EquippedItems.GetHat() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipHat(null);
+                                                }
+                                                break;
+                                            case BodyPartType.EyeNose:
+                                                if (EquippedItems.GetLeftEye() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipLeftEye(null);
+                                                }
+                                                if (EquippedItems.GetRightEye() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipRightEye(null);
+                                                }
+                                                if (EquippedItems.GetNose() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipNose(null);
+                                                }
+                                                break;
+                                            case BodyPartType.Mouth:
+                                                if (EquippedItems.GetMouth() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipMouth(null);
+                                                }
+                                                break;
+                                            case BodyPartType.Scarf:
+                                                if (EquippedItems.GetNeck() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipNeck(null);
+                                                }
+                                                break;
+                                            case BodyPartType.Hitten:
+                                                if (EquippedItems.GetLeftHand() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipLeftHand(null);
+                                                }
+                                                if (EquippedItems.GetRightHand() == io.ResourceName)
+                                                {
+                                                    EquippedItems.EquipRightHand(null);
+                                                }
+                                                break;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                        else
+                        {
+
+                            transform.localPosition = origin;
+                            isEquipped = false;
+                        }
+
                     }
                 }
             }
             else
             {
                 transform.localPosition = origin;
+                isEquipped = false;
             }
         }
         if (_mouseState)

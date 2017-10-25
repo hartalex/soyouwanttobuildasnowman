@@ -51,14 +51,15 @@ public class Body : MonoBehaviour {
 	public Toggle HatToggle = null;
 
 	 public bool isComplete() {
-		return (HatEquipmentPosition.Object != null &&
+         return /*(HatEquipmentPosition.Object != null &&
 			LeftEye != null &&
 			RightEye != null &&
 			Nose != null &&
 			Mouth != null &&
 			Scarf != null &&
 			LeftMitten != null &&
-			RightMitten != null);
+			RightMitten != null);*/
+             false;
 	}
 
 	void Start()
