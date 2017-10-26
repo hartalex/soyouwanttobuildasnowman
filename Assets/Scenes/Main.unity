@@ -21979,7 +21979,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 999445007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 679.5, y: 272.5, z: 0}
+  m_LocalPosition: {x: 506.5, y: 272.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1464166881}
@@ -26482,11 +26482,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: ffbb952c07316014b880eeba5ae30525, type: 2}
     - target: {fileID: 100004, guid: fd414471f7f7546ecbca28e297e7fb4f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: fd414471f7f7546ecbca28e297e7fb4f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fd414471f7f7546ecbca28e297e7fb4f, type: 3}
       propertyPath: m_StaticEditorFlags
