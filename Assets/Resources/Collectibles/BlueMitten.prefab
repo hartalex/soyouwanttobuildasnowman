@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1901039219290176
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33183904958057150}
   - component: {fileID: 23497426815966518}
   - component: {fileID: 54514266685633436}
-  - component: {fileID: 64865830039431496}
   - component: {fileID: 114165375989202326}
   - component: {fileID: 114760121521027166}
   - component: {fileID: 114382379715206978}
+  - component: {fileID: 135757469704011506}
   m_Layer: 0
   m_Name: BlueMitten
   m_TagString: Untagged
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64865830039431496
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1901039219290176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0dd345bf5ee2c46fc9702943949263ab, type: 3}
 --- !u!114 &114165375989202326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+--- !u!135 &135757469704011506
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1901039219290176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.051350497, z: 0.200273}
 --- !u!198 &198954912425874686
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33448220367668634}
   - component: {fileID: 23072382379752672}
   - component: {fileID: 54617510486074154}
-  - component: {fileID: 64340213042574788}
   - component: {fileID: 114215570230786512}
   - component: {fileID: 114145406915115766}
   - component: {fileID: 114730060646770342}
+  - component: {fileID: 135880647943010508}
   m_Layer: 0
   m_Name: TopHatRed
   m_TagString: Untagged
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64340213042574788
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101866604887240}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 18351a081d415415aa4d3e51893bc9cd, type: 3}
 --- !u!114 &114145406915115766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Red Top Hat
   ResourceName: Collectibles/TopHatRed
+--- !u!135 &135880647943010508
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101866604887240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 8.3560705
+  m_Center: {x: 0, y: 6.533502e-15, z: 7.35607}
 --- !u!198 &198999027642156166
 ParticleSystem:
   m_ObjectHideFlags: 1

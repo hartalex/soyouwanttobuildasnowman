@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1944891595696784
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33227988635688716}
   - component: {fileID: 23133546583273270}
   - component: {fileID: 54343891141411554}
-  - component: {fileID: 64958983522004322}
   - component: {fileID: 114878620366966622}
   - component: {fileID: 114239067820168218}
   - component: {fileID: 114681044304429084}
+  - component: {fileID: 135543941677458562}
   m_Layer: 0
   m_Name: YellowScarf
   m_TagString: Untagged
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64958983522004322
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1944891595696784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b78c6095d24bd4029a1a51b7414640ec, type: 3}
 --- !u!114 &114239067820168218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartType: 3
   Rotation: {x: 0, y: 0, z: 0}
+--- !u!135 &135543941677458562
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944891595696784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1744235
+  m_Center: {x: -0.16309649, y: -0.0069550276, z: 0.47739154}
 --- !u!198 &198207489428651370
 ParticleSystem:
   m_ObjectHideFlags: 1

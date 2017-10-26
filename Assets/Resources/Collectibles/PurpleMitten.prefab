@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33023220120630388}
   - component: {fileID: 23616541824285170}
   - component: {fileID: 54545670681594832}
-  - component: {fileID: 64485332646587160}
   - component: {fileID: 114180805093916822}
   - component: {fileID: 114350839694990722}
   - component: {fileID: 114677088029599802}
+  - component: {fileID: 135659361046736854}
   m_Layer: 0
   m_Name: PurpleMitten
   m_TagString: Untagged
@@ -49,14 +49,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4033296735010968
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1070525673578936}
-  m_LocalRotation: {x: 0, y: 0.6689647, z: 0, w: 0.7432941}
+  m_LocalRotation: {x: 0, y: 0.66896474, z: 0, w: 0.7432942}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64485332646587160
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1070525673578936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0dd345bf5ee2c46fc9702943949263ab, type: 3}
 --- !u!114 &114180805093916822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Purple Mitten
   ResourceName: Collectibles/PurpleMitten
+--- !u!135 &135659361046736854
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070525673578936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.051350497, z: 0.20027304}
 --- !u!198 &198378105432295106
 ParticleSystem:
   m_ObjectHideFlags: 1

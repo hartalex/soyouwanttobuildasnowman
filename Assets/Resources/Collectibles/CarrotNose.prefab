@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33890594183121628}
   - component: {fileID: 23733538071925592}
   - component: {fileID: 54903018921623902}
-  - component: {fileID: 64801319290540264}
   - component: {fileID: 114520934973672790}
   - component: {fileID: 114089835664800120}
   - component: {fileID: 114198241601357480}
   - component: {fileID: 114387329474218306}
+  - component: {fileID: 135310605958067762}
   m_Layer: 0
   m_Name: CarrotNose
   m_TagString: Untagged
@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4217555799316410
 Transform:
   m_ObjectHideFlags: 1
@@ -135,20 +135,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64801319290540264
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518629014553540}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d2d6da332cea8412292e51a149354e25, type: 3}
 --- !u!114 &114089835664800120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,7 +154,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518629014553540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b8e2cc662e4da4b8976e97a2d5cf65, type: 3}
   m_Name: 
@@ -200,6 +186,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartType: 2
   Rotation: {x: 0, y: -90, z: 0}
+--- !u!135 &135310605958067762
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518629014553540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8029157
+  m_Center: {x: -0.009183995, y: 0.5397126, z: 0}
 --- !u!198 &198547695512579420
 ParticleSystem:
   m_ObjectHideFlags: 1

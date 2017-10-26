@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1450281591172838
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,12 +37,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4081339233157364}
   - component: {fileID: 33017542067829680}
-  - component: {fileID: 135125863019447918}
   - component: {fileID: 23135251994759660}
   - component: {fileID: 114088949746689464}
   - component: {fileID: 114163913871171200}
   - component: {fileID: 54143409185806142}
   - component: {fileID: 114959214283446256}
+  - component: {fileID: 135929189075476478}
   m_Layer: 0
   m_Name: MarbleYellow
   m_TagString: Untagged
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Yellow Marble
   ResourceName: Collectibles/MarbleYellow
---- !u!135 &135125863019447918
+--- !u!135 &135929189075476478
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -181,7 +181,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198600229287558748
 ParticleSystem:

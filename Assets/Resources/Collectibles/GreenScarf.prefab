@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1522000008011880
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,11 +38,11 @@ GameObject:
   - component: {fileID: 4269651628982950}
   - component: {fileID: 33430360144261832}
   - component: {fileID: 54119494750036300}
-  - component: {fileID: 64400729760291872}
   - component: {fileID: 137135517209159170}
   - component: {fileID: 114678920678399606}
   - component: {fileID: 114453680442632566}
   - component: {fileID: 114180833050406490}
+  - component: {fileID: 135199745735796720}
   m_Layer: 0
   m_Name: GreenScarf
   m_TagString: Untagged
@@ -99,20 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64400729760291872
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1522000008011880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b78c6095d24bd4029a1a51b7414640ec, type: 3}
 --- !u!114 &114180833050406490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +137,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartType: 3
   Rotation: {x: 0, y: 0, z: 0}
+--- !u!135 &135199745735796720
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522000008011880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1744237
+  m_Center: {x: -0.16309738, y: -0.006954193, z: 0.47739154}
 --- !u!137 &137135517209159170
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

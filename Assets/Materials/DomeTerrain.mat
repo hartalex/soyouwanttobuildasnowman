@@ -56,7 +56,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _icealbedo:
         m_Texture: {fileID: 2800000, guid: 68a7e165943882344afd603a1a464e18, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _node_335:
         m_Texture: {fileID: 2800000, guid: 68a7e165943882344afd603a1a464e18, type: 3}
@@ -80,39 +80,39 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _pathalbedo:
         m_Texture: {fileID: 2800000, guid: 3738c589918108240bb02966b839f167, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _pathheight:
         m_Texture: {fileID: 2800000, guid: 1ad921cf7635cb745b73ea4a1007f87c, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _pathnormal:
         m_Texture: {fileID: 2800000, guid: 284be24a76a762b46851e56e4fe33d27, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _rockalbedo:
         m_Texture: {fileID: 2800000, guid: ff7d277dd30971c4d9160a9353c3c4d3, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _rockheight:
         m_Texture: {fileID: 2800000, guid: 915e30c9a2499364889ff3e575f5f419, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _rocknormal:
         m_Texture: {fileID: 2800000, guid: 980ceac7efb8bc64e85220e5050647c5, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _snowalbedo:
         m_Texture: {fileID: 2800000, guid: 3277de7652880c545a28a81a31d4ea55, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _snowheight:
         m_Texture: {fileID: 2800000, guid: 8a8e4b634208fab43a37bdc6e3ab2876, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _snownormal:
         m_Texture: {fileID: 2800000, guid: 2194756113b0cb84fb9bc0b0a77c05ff, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1

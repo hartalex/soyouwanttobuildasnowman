@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 95678754329400020}
   - component: {fileID: 114195453099602962}
   - component: {fileID: 54351909443891720}
-  - component: {fileID: 64664809577877430}
   - component: {fileID: 114700154006234358}
   - component: {fileID: 114026411685881486}
+  - component: {fileID: 135334045717945084}
   m_Layer: 0
   m_Name: cheesehead
   m_TagString: Untagged
@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4012893235975944
 Transform:
   m_ObjectHideFlags: 1
@@ -134,20 +134,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64664809577877430
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293020827853512}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 4935a37872e206a4caa242a513af9a59, type: 3}
 --- !u!95 &95678754329400020
 Animator:
   serializedVersion: 3
@@ -203,6 +189,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartType: 0
   Rotation: {x: 0, y: 0, z: 0}
+--- !u!135 &135334045717945084
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293020827853512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: -0.0012960136, y: 0.15959905, z: 0.5604891}
 --- !u!198 &198027359026261364
 ParticleSystem:
   m_ObjectHideFlags: 1

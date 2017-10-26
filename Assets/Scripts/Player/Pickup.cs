@@ -7,6 +7,8 @@ public class Pickup : MonoBehaviour {
 
     public new Camera camera = null;
     public Text ActionPromptText = null;
+    public Text ActionNameText = null;
+    public GameObject ActionPromptImage = null;
 
     void Start()
     {
@@ -24,6 +26,14 @@ public class Pickup : MonoBehaviour {
         {
             throw new MissingComponentException("Missing ActionPromptText Component");
         }
+        if (ActionNameText == null)
+        {
+            throw new MissingComponentException("Missing ActionNameText Component");
+        }
+        if (ActionPromptImage == null)
+        {
+            throw new MissingComponentException("Missing ActionPromptImage Component");
+        }
     }
 
     void FixedUpdate()
@@ -39,7 +49,9 @@ public class Pickup : MonoBehaviour {
                 if (!ActionPromptText.enabled)
                 {
                     ActionPromptText.enabled = true;
-                    ActionPromptText.text = "E - Pick Up";
+                    ActionPromptText.text = io.Name;
+                    ActionNameText.enabled = true;
+                    ActionPromptImage.SetActive(true);
                 }
                 
                 if (Input.GetButton("Activate"))
@@ -51,11 +63,15 @@ public class Pickup : MonoBehaviour {
             else
             {
                 ActionPromptText.enabled = false;
+                ActionNameText.enabled = false;
+                ActionPromptImage.SetActive(false);
             }
         }
         else
         {
             ActionPromptText.enabled = false;
+            ActionNameText.enabled = false;
+            ActionPromptImage.SetActive(false);
         }
     }
 }

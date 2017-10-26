@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1844585769548508
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33753972689129072}
   - component: {fileID: 23776253038663950}
   - component: {fileID: 54619993717307056}
-  - component: {fileID: 64797887515970258}
   - component: {fileID: 114217207795296206}
   - component: {fileID: 114310671330112530}
   - component: {fileID: 114444865206736940}
+  - component: {fileID: 135547821707165720}
   m_Layer: 0
   m_Name: GreenMitten
   m_TagString: Untagged
@@ -69,7 +69,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844585769548508}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.6689647, z: 0, w: 0.7432941}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64797887515970258
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844585769548508}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0dd345bf5ee2c46fc9702943949263ab, type: 3}
 --- !u!114 &114217207795296206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Green Mitten
   ResourceName: Collectibles/GreenMitten
+--- !u!135 &135547821707165720
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844585769548508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.051350497, z: 0.200273}
 --- !u!198 &198139174878317418
 ParticleSystem:
   m_ObjectHideFlags: 1

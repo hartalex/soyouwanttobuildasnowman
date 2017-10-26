@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1755777050991948
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33468833856435728}
   - component: {fileID: 23178590913659424}
   - component: {fileID: 54338902824708710}
-  - component: {fileID: 64924047638723704}
   - component: {fileID: 114398216062469432}
   - component: {fileID: 114562549960070894}
   - component: {fileID: 114888680247335730}
+  - component: {fileID: 135203471594652182}
   m_Layer: 0
   m_Name: RedScarf
   m_TagString: Untagged
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64924047638723704
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755777050991948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b78c6095d24bd4029a1a51b7414640ec, type: 3}
 --- !u!114 &114398216062469432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Red Scarf
   ResourceName: Collectibles/RedScarf
+--- !u!135 &135203471594652182
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755777050991948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: -0.16309647, y: -0.006955027, z: 0.47739154}
 --- !u!198 &198484729085545340
 ParticleSystem:
   m_ObjectHideFlags: 1

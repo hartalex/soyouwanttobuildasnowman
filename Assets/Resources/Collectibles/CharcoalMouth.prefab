@@ -104,11 +104,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4848922278442626}
-  - component: {fileID: 65821481325264228}
   - component: {fileID: 54717818385723222}
   - component: {fileID: 114516319318720748}
   - component: {fileID: 114415555341941028}
   - component: {fileID: 114235122526203258}
+  - component: {fileID: 135994714387171042}
   m_Layer: 0
   m_Name: CharcoalMouth
   m_TagString: Untagged
@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4052869032785554
 Transform:
   m_ObjectHideFlags: 1
@@ -450,18 +450,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65821481325264228
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1431592975453636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114235122526203258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,6 +488,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPartType: 2
   Rotation: {x: 0, y: 0, z: 0}
+--- !u!135 &135994714387171042
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431592975453636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198688105311868494
 ParticleSystem:
   m_ObjectHideFlags: 1

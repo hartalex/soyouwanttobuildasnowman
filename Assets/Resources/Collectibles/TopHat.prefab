@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1949864319669542
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33810064975605564}
   - component: {fileID: 23045035275004512}
   - component: {fileID: 54610076100106440}
-  - component: {fileID: 64634099463728620}
   - component: {fileID: 114515139171467342}
   - component: {fileID: 114327519123186460}
   - component: {fileID: 114719409982947512}
+  - component: {fileID: 135397279952552470}
   m_Layer: 0
   m_Name: TopHat
   m_TagString: Untagged
@@ -133,20 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64634099463728620
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1949864319669542}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 18351a081d415415aa4d3e51893bc9cd, type: 3}
 --- !u!114 &114327519123186460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Black Top Hat
   ResourceName: Collectibles/TopHat
+--- !u!135 &135397279952552470
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949864319669542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 6.533502e-15, z: 7.356071}
 --- !u!198 &198769651497927616
 ParticleSystem:
   m_ObjectHideFlags: 1
