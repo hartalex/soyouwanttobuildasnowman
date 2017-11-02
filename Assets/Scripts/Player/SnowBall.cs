@@ -33,18 +33,19 @@ public class SnowBall : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(HitIndicator());
-
+        if (other.gameObject.layer != 2)
+        { // Ignore Raycast
+            HitIndicator();
+            other.gameObject.SendMessage("SnowBalled",null,SendMessageOptions.DontRequireReceiver);
+        }
     }
 
-    private IEnumerator HitIndicator()
+    private void HitIndicator()
     {
         meshRenderer.enabled = false;
         GameObject explosion = GameObject.Instantiate(snowBallExplosion);
         explosion.transform.position = transform.position;
-        yield return new WaitForSeconds(0.3f);
-        Destroy(explosion);
-        Destroy(gameObject);
+        DestroyObject(this.gameObject);
     }
 
     

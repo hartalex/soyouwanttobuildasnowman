@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Pickup : MonoBehaviour {
 
-    public new Camera camera = null;
+    public Camera viewCamera = null;
     public Text ActionPromptText = null;
     public Text ActionNameText = null;
     public GameObject ActionPromptImage = null;
+    InventoryObject hoveredObject = null;
 
     void Start()
     {
      
-        if (camera == null)
+        if (viewCamera == null)
         {
-            camera = GetComponent<Camera>();
-            if (camera == null)
+            viewCamera = GetComponent<Camera>();
+            if (viewCamera == null)
             {
                 throw new MissingComponentException("Missing Camera Component");
             }
@@ -36,42 +38,61 @@ public class Pickup : MonoBehaviour {
         }
     }
 
-    void FixedUpdate()
+    
+    public void OnDrag(PointerEventData eventData)
     {
-        Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
-        Ray ray = camera.ScreenPointToRay(point);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 10))
+
+    }
+
+void FixedUpdate()
+    {
+        // pickup if e pressed
+        if (Input.GetButton("Activate") && hoveredObject != null)
         {
-            InventoryObject io = hit.collider.gameObject.GetComponent<InventoryObject>();
-            if (io != null)
+            Inventory.addObject(hoveredObject.ResourceName);
+            DestroyObject(hoveredObject.gameObject);
+            hoveredObject = null;
+            ActionPromptText.enabled = false;
+            ActionNameText.enabled = false;
+            ActionPromptImage.SetActive(false);
+        }
+
+        if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0 ||
+            Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Vector3 point = new Vector3(viewCamera.pixelWidth / 2, viewCamera.pixelHeight / 2, 0);
+            Ray ray = viewCamera.ScreenPointToRay(point);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 10))
             {
-                if (!ActionPromptText.enabled)
+                InventoryObject io = hit.collider.gameObject.GetComponent<InventoryObject>();
+                if (io != null)
                 {
-                    ActionPromptText.enabled = true;
-                    ActionPromptText.text = io.Name;
-                    ActionNameText.enabled = true;
-                    ActionPromptImage.SetActive(true);
+                    if (!ActionPromptText.enabled)
+                    {
+                        ActionPromptText.enabled = true;
+                        ActionPromptText.text = io.Name;
+                        ActionNameText.enabled = true;
+                        ActionPromptImage.SetActive(true);
+                    }
+
+                    hoveredObject = io;
                 }
-                
-                if (Input.GetButton("Activate"))
+                else
                 {
-                    Inventory.addObject(io.ResourceName);
-                    DestroyObject(hit.collider.gameObject);
+                    hoveredObject = null;
+                    ActionPromptText.enabled = false;
+                    ActionNameText.enabled = false;
+                    ActionPromptImage.SetActive(false);
                 }
             }
             else
             {
+                hoveredObject = null;
                 ActionPromptText.enabled = false;
                 ActionNameText.enabled = false;
                 ActionPromptImage.SetActive(false);
             }
-        }
-        else
-        {
-            ActionPromptText.enabled = false;
-            ActionNameText.enabled = false;
-            ActionPromptImage.SetActive(false);
         }
     }
 }

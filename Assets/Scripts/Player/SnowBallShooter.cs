@@ -1,20 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class SnowBallShooter : MonoBehaviour {
 
-    private new Camera camera = null;
+    public new Camera camera = null;
 
     public GameObject snowBall = null;
     public int maxDistance = 30;
 
     // Use this for initialization
     void Start () {
-        camera = GetComponent<Camera>();
         if (camera == null)
         {
-            throw new MissingComponentException("Missing Camera Component");
+            camera = GetComponent<Camera>();
+            if (camera == null)
+            {
+
+                throw new MissingComponentException("Missing Camera Component");
+            }
         }
         if (snowBall == null)
         {
@@ -24,13 +27,13 @@ public class SnowBallShooter : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+   
+    // Update is called once per frame
+    void Update () {
 		if (Input.GetMouseButtonDown(0))
         {
             Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
-            Ray ray = camera.ScreenPointToRay(point);
+            Ray ray =  camera.ScreenPointToRay(point);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {

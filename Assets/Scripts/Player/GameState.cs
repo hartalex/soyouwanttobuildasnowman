@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
 	public GameObject Body = null;
     public GameObject CrossHairs = null;
 	private bool isStartScreen = true;
+    public SnowBallShooter snowBallShooter = null;
 
     void Start()
     {
@@ -64,12 +65,11 @@ public class GameState : MonoBehaviour
 		if (look != null) {
 			look.enabled = true;
 		}
-        SnowBallShooter snowBallShooter = MainCamera.GetComponent<SnowBallShooter>();
         if (snowBallShooter != null)
         {
             snowBallShooter.enabled = true;
         }
-        MainCamera.transform.localPosition = new Vector3 (0f, 3f, 0f);
+        MainCamera.transform.localPosition = new Vector3 (0f, 4f, -7f);
 		MainCamera.transform.localRotation = Quaternion.Euler(15, 0, 0);
 		StartText.SetActive (false);
         CrossHairs.SetActive(true);
@@ -95,7 +95,7 @@ public class GameState : MonoBehaviour
 		if (look != null) {
 			look.enabled = false;
 		}
-        SnowBallShooter snowBallShooter = MainCamera.GetComponent<SnowBallShooter>();
+        
         if (snowBallShooter != null)
         {
             snowBallShooter.enabled = false;

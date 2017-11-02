@@ -20,7 +20,7 @@ public class BodyPartHover : MonoBehaviour {
 			if (Step > 999999) {
 				Step = 1f;
 			}
-
+            
 			//Float up and down along the y axis, 
 			transform.position = new Vector3 (transform.position.x, (Mathf.Sin (Step) * Offset) + .5f, transform.position.z);
 		}

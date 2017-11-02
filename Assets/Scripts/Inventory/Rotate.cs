@@ -5,7 +5,6 @@ using UnityEngine;
 public class Rotate : MonoBehaviour
 {
 
-    private Rigidbody rigidBody;
     public float force = 1f;
 
     public bool X = false;
@@ -15,11 +14,6 @@ public class Rotate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        if (rigidBody == null)
-        {
-            throw new MissingComponentException("Missing Rigidbody Component");
-        }
     }
 
     // Update is called once per frame
@@ -43,6 +37,6 @@ public class Rotate : MonoBehaviour
         }
 
         Vector3 vector = new Vector3(x, y, z);
-        rigidBody.transform.Rotate(vector);
+        transform.Rotate(vector);
     }
 }

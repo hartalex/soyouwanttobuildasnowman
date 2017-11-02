@@ -69,7 +69,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetHat(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -84,7 +85,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftEye(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -99,7 +101,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightEye(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -114,7 +117,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNose(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -129,7 +133,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetMouth(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -144,7 +149,8 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetNeck(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            ins.layer = 2;
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -159,8 +165,9 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetLeftHand(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
+            ins.layer = 2;
             obj.transform.localRotation = new Quaternion(0f, 0.9f, 0f, 1f);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
@@ -175,8 +182,9 @@ public class Body : MonoBehaviour {
         {
             GameObject obj = (GameObject)Resources.Load(EquipedItems.GetRightHand(), typeof(GameObject));
             GameObject ins = Instantiate(obj);
+            ins.layer = 2;
             ins.transform.localRotation = new Quaternion(0f, -0.9f, 0f, 1f);
-            Dnd dnd = ins.AddComponent<Dnd>();
+            DragAndDrop dnd = ins.AddComponent<DragAndDrop>();
             dnd.isEquipped = true;
             BodyPart[] bodyParts = ins.GetComponents<BodyPart>();
             foreach (BodyPart bodyPart in bodyParts)
