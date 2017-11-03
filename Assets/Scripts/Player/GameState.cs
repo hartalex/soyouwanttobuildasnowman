@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-	public GameObject YouWinText = null;
 	public GameObject MainCamera = null;
 	public GameObject Body = null;
     public GameObject CrossHairs = null;
@@ -75,7 +74,6 @@ public class GameState : MonoBehaviour
 	{
 		// You WIN
 		//MainCamera
-		YouWinText.SetActive (true);
 		MainCamera.transform.localRotation = new Quaternion (0f, 1.2f, 0f, 1f);
 		Look cameraLook = MainCamera.GetComponent<Look> ();
 		if (cameraLook != null) {
