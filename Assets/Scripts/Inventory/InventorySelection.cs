@@ -69,7 +69,7 @@ public class InventorySelection : MonoBehaviour
                 }
             }
             GameObject myref = Instantiate(go, inspectorPosition.transform);
-            myref.AddComponent<DragAndDrop>();
+            myref.AddComponent<DragNDrop>();
             Rotate rotate = myref.AddComponent<Rotate>();
             rotate.X = true;
             rotate.Z = true;

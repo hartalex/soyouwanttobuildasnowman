@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour
+public class DragNDrop : MonoBehaviour
 {
     private bool _mouseState;
     private GameObject target;
@@ -31,7 +31,7 @@ public class DragAndDrop : MonoBehaviour
             target = GetClickedObject(out hitInfo);
             if (target != null)
             {
-                DragAndDrop dnd = target.GetComponent<DragAndDrop>();
+                DragNDrop dnd = target.GetComponent<DragNDrop>();
                 if (dnd != null)
                 {
                     _mouseState = true;

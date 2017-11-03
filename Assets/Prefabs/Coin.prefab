@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb139a1bc85211419746350eda3398e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionType: 0
+  value: 1
 --- !u!114 &114722104496492370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,5 +139,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.0000002
+  m_Radius: 2
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}

@@ -7,6 +7,10 @@ public class FireScript : MonoBehaviour
     public GameObject Fire;
     public GameObject Coin;
 
+    public float duration;
+    private float startTime;
+    private bool empty = false;
+
     void Start()
     {
         if (Fire == null)
@@ -16,6 +20,14 @@ public class FireScript : MonoBehaviour
         if (Coin == null)
         {
             throw new MissingReferenceException("Missing Coin Object");
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!Fire.activeSelf && Time.time - startTime > duration)
+        {
+            Fire.SetActive(true);
         }
     }
 
@@ -29,11 +41,11 @@ public class FireScript : MonoBehaviour
     bool PutOutFire()
     {
         bool retval = false;
-        if (Fire != null)
+        if (Fire.activeSelf)
         {
-            DestroyObject(Fire);
-            Fire = null;
+            Fire.SetActive(false);
             retval = true;
+            startTime = Time.time;
         }
 
         return retval;
@@ -41,8 +53,12 @@ public class FireScript : MonoBehaviour
 
     void SpawnCoin()
     {
-        GameObject coin = GameObject.Instantiate(Coin);
-        coin.transform.position = transform.position + new Vector3(1f,0f,-1f);  // initial position
-        coin.AddComponent<Popup>();
+        if (!empty)
+        {
+            GameObject coin = GameObject.Instantiate(Coin);
+            coin.transform.position = transform.position + new Vector3(1f, 0f, -1f);  // initial position
+            coin.AddComponent<Popup>();
+            empty = true;
+        }
     }
 }
