@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
@@ -16,7 +14,7 @@ public class Menu : MonoBehaviour {
 	void Update () {
         if (Input.GetButton("Cancel") || Input.GetButton("Inventory"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Main");
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
 	public GameObject YouWinText = null;
-	public GameObject StartText = null;
 	public GameObject MainCamera = null;
 	public GameObject Body = null;
     public GameObject CrossHairs = null;
@@ -28,11 +26,8 @@ public class GameState : MonoBehaviour
 
 		// Start Scene is also the main scene, this gives snow some time to fall
 		if (isStartScreen) {
-			if (Input.GetButton ("Fire1")) {
 				SetPlayingState ();
                 Inventory.SetStarted(true);
-
-            }
 		} else {
 			if (Body.GetComponent<Body>().isComplete ()) {
 				SetEndState ();
@@ -44,7 +39,7 @@ public class GameState : MonoBehaviour
                     Inventory.SetPlayerRotation(Body.gameObject.transform.localRotation);
                     Inventory.SetCameraRotation(MainCamera.transform.localRotation);
                 
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene("Inventory");
                 }
             }
 		}
@@ -71,7 +66,6 @@ public class GameState : MonoBehaviour
         }
         MainCamera.transform.localPosition = new Vector3 (0f, 4f, -7f);
 		MainCamera.transform.localRotation = Quaternion.Euler(15, 0, 0);
-		StartText.SetActive (false);
         CrossHairs.SetActive(true);
 
 
@@ -103,7 +97,7 @@ public class GameState : MonoBehaviour
         CrossHairs.SetActive(false);
 
         if (Input.GetButton ("Fire1")) {
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene ("Title");
 		}
 	}
 }
