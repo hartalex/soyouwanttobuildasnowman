@@ -30,7 +30,7 @@ public class SnowBallShooter : MonoBehaviour {
    
     // Update is called once per frame
     void Update () {
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetButton("Fire1"))
         {
             Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
             Ray ray =  camera.ScreenPointToRay(point);
