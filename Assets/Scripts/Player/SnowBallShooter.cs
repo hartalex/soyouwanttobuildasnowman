@@ -8,6 +8,9 @@ public class SnowBallShooter : MonoBehaviour {
     public GameObject snowBall = null;
     public int maxDistance = 30;
 
+    public float duration;
+    private float startTime;
+
     // Use this for initialization
     void Start () {
         if (camera == null)
@@ -23,29 +26,32 @@ public class SnowBallShooter : MonoBehaviour {
         {
             throw new MissingReferenceException("Missing SnowBall Object");
         }
-      
+        startTime = Time.time;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 	}
-   
+
     // Update is called once per frame
-    void Update () {
-		if (Input.GetButton("Fire1"))
-        {
-            Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
-            Ray ray =  camera.ScreenPointToRay(point);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+    void FixedUpdate() {
+        if (Time.time - startTime > duration) { 
+            if (Input.GetButton("Fire1"))
             {
-                GameObject mySnowBall = GameObject.Instantiate(snowBall);
-                mySnowBall.transform.position = transform.TransformPoint(Vector3.forward * 2.5f);
-                mySnowBall.transform.position = transform.TransformPoint(Vector3.right);
-                                               
-                mySnowBall.transform.LookAt(hit.point);
-                SnowBall snowBallScript = mySnowBall.GetComponent<SnowBall>();
-                snowBallScript.endposition = hit.transform.position;
-                
+                Vector3 point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
+                Ray ray = camera.ScreenPointToRay(point);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    GameObject mySnowBall = GameObject.Instantiate(snowBall);
+                    mySnowBall.transform.position = transform.position + (Vector3.forward * 5f);
+                    mySnowBall.transform.position = transform.position + (Vector3.right);
+
+                    mySnowBall.transform.LookAt(hit.point);
+                    SnowBall snowBallScript = mySnowBall.GetComponent<SnowBall>();
+                    snowBallScript.endposition = hit.transform.position;
+
+                }
             }
+            startTime = Time.time;
         }
 	}
 }

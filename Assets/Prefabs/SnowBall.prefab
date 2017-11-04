@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114842919762577846}
   - component: {fileID: 54474841940513508}
   - component: {fileID: 114335576335863318}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SnowBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
