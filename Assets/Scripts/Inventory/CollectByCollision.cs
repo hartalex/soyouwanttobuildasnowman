@@ -3,13 +3,19 @@ using System.Collections;
 
 public class CollectByCollision : MonoBehaviour
 {
+    public CollectionTypes collectionType;
+    public int value;
 
     void OnTriggerEnter(Collider collider)
     {
-        Body body = collider.gameObject.GetComponent<Body>();
-        if (body != null)
+        if (collectionType == CollectionTypes.Coins)
         {
-            DestroyObject(this.gameObject);
+            CoinPurse coinPurse = collider.gameObject.GetComponent<CoinPurse>();
+            if (coinPurse != null)
+            {
+                coinPurse.AddCoins(value);
+                DestroyObject(this.gameObject);
+            }
         }
     }
 }
