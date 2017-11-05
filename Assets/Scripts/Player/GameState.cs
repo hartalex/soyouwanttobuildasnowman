@@ -46,16 +46,16 @@ public class GameState : MonoBehaviour
 
 	public void SetPlayingState() {
 		isStartScreen = false;
-		// Turn off Spinning 
-		Look cameraLook = MainCamera.GetComponent<Look> ();
+        // Turn off Spinning 
+        /*Look cameraLook = MainCamera.GetComponent<Look> ();
 		if (cameraLook != null) {
 			cameraLook.enabled = true;
 		}
-		CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
+        /*CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
 		if (cameraOrbit != null) {
 			cameraOrbit.enabled = false;
 		}
-		Look look = Body.GetComponent<Look> ();
+        Look look = Body.GetComponent<Look> ();
 		if (look != null) {
 			look.enabled = true;
 		}
@@ -63,36 +63,15 @@ public class GameState : MonoBehaviour
         {
             snowBallShooter.enabled = true;
         }
-        MainCamera.transform.localPosition = new Vector3 (0f, 4f, -7f);
-		MainCamera.transform.localRotation = Quaternion.Euler(15, 0, 0);
+        
         CrossHairs.SetActive(true);
-
+        */
 
     }
 
-	public void SetEndState()
+    public void SetEndState()
 	{
-		// You WIN
-		//MainCamera
-		MainCamera.transform.localRotation = new Quaternion (0f, 1.2f, 0f, 1f);
-		Look cameraLook = MainCamera.GetComponent<Look> ();
-		if (cameraLook != null) {
-			cameraLook.enabled = false;
-		}
-		CameraOrbit cameraOrbit = MainCamera.GetComponent<CameraOrbit> ();
-		if (cameraOrbit != null) {
-			cameraOrbit.enabled = true;
-		}
-		Look look = Body.GetComponent<Look> ();
-		if (look != null) {
-			look.enabled = false;
-		}
-        
-        if (snowBallShooter != null)
-        {
-            snowBallShooter.enabled = false;
-        }
-        CrossHairs.SetActive(false);
+		
 
         if (Input.GetButton ("Fire1")) {
 			SceneManager.LoadScene ("Title");

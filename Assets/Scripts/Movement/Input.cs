@@ -14,6 +14,7 @@ namespace ldjam38
 		private CharacterController charController;
 		private Rigidbody rigidBody;
 		private float myMass = 1;
+        public Transform cameraPosition;
 
 		void Start ()
 		{
@@ -24,6 +25,7 @@ namespace ldjam38
 
 		void Update ()
 		{
+            
 			float deltaX = UnityEngine.Input.GetAxis ("Horizontal") * speed;
 			float deltaZ = UnityEngine.Input.GetAxis ("Vertical") * speed;
 			Vector3 movement = new Vector3 (deltaX, 0, deltaZ);
