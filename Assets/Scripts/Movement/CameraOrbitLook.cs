@@ -8,6 +8,7 @@ public class CameraOrbitLook : MonoBehaviour
     public GameObject target;//the target object
     public float speedMod = 10.0f;//a speed modifier
     private Vector3 point;//the coord to the point where the camera looks at
+    public float distance = 10.0f;  // disptance between player and camera
 
     void Start()
     {//Set up things on the start method
@@ -21,5 +22,10 @@ public class CameraOrbitLook : MonoBehaviour
         transform.RotateAround(point, new Vector3(1.0f, 0.0f, 0.0f), 50*Time.deltaTime * speedMod * Input.GetAxis("Mouse Y"));
         point = target.transform.position;//get target's coords
         transform.LookAt(point);//makes the camera look to it
+    }
+    void LateUpdate()
+    {
+        // Keep camera a specified distance away from player
+        transform.position = target.transform.position - transform.forward * distance;
     }
 }

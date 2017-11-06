@@ -10,6 +10,7 @@ public class InputCamera : MonoBehaviour {
     private CharacterController charController;
     private Rigidbody rigidBody;
     private float myMass = 1;
+    public Camera mainCamera = null;
  
 
     void Start()
@@ -24,17 +25,24 @@ public class InputCamera : MonoBehaviour {
 
         float deltaX = UnityEngine.Input.GetAxis("Horizontal") * speed;
         float deltaZ = UnityEngine.Input.GetAxis("Vertical") * speed;
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-        
-        movement = Vector3.ClampMagnitude(movement, speed);
+            Vector3 movement = new Vector3(deltaX, 0, deltaZ);
 
-        movement.y = gravity;
+            movement = Vector3.ClampMagnitude(movement, speed);
 
-        movement *= Time.deltaTime;
-        transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
-        movement = transform.TransformDirection(movement);
+            movement *= Time.deltaTime;
+
+            Vector3 cameraWorldMovement = mainCamera.transform.TransformDirection(movement);
+            Vector3 cameraWorldMovementGravity = cameraWorldMovement;
+        cameraWorldMovement.y = 0;
+        cameraWorldMovementGravity.y += gravity;
+        charController.Move(cameraWorldMovementGravity);
+
+        Vector3 worldMovement = transform.position + cameraWorldMovement;
        
-        charController.Move(movement);
+        if (movement.x != 0 || movement.z != 0)
+        {
+            transform.LookAt(worldMovement);
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -59,6 +67,6 @@ public class InputCamera : MonoBehaviour {
         }
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        body.velocity = Vector3.ClampMagnitude(pushDir * pushPower, speed);
+        // body.velocity = Vector3.ClampMagnitude(pushDir * pushPower, speed);
     }
 }

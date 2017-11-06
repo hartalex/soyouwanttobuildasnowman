@@ -7,8 +7,9 @@ public class SnowBall : MonoBehaviour
     public float speed = 10.0f;
     public GameObject snowBallExplosion = null;
     private MeshRenderer meshRenderer = null;
-    public Vector3 endposition;
-    private Vector3 midpoint;
+     private Vector3 midpoint;
+    public float gravity = -9.8f;
+    public float height = 1;
 
     void Start()
     {
@@ -26,7 +27,8 @@ public class SnowBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = new Vector3(0, 0, speed * Time.deltaTime);
+        height += gravity * Time.deltaTime;
+        Vector3 newPos = new Vector3(0, height, speed * Time.deltaTime);
        
         transform.Translate(newPos);
     }

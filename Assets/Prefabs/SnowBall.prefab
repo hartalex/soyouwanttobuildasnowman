@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114842919762577846}
   - component: {fileID: 54474841940513508}
   - component: {fileID: 114335576335863318}
+  - component: {fileID: 114606846993206976}
   m_Layer: 2
   m_Name: SnowBall
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &114335576335863318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +114,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+--- !u!114 &114606846993206976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643953152590950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3767a62404e7442ad34e9c87aad665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: {x: -400, y: -150, z: -450}
+  max: {x: 450, y: 350, z: 450}
 --- !u!114 &114842919762577846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +141,8 @@ MonoBehaviour:
   speed: 45
   snowBallExplosion: {fileID: 1655142382823938, guid: 35576d6c118a7c04ca7ecdbbfd650571,
     type: 2}
-  endposition: {x: 0, y: 0, z: 0}
+  gravity: -9.8
+  height: 0.5
 --- !u!135 &135900678504887938
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -138,5 +153,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}

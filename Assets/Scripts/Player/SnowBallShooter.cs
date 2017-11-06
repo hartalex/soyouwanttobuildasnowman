@@ -47,8 +47,6 @@ public class SnowBallShooter : MonoBehaviour {
 
                     mySnowBall.transform.LookAt(hit.point);
                     SnowBall snowBallScript = mySnowBall.GetComponent<SnowBall>();
-                    snowBallScript.endposition = hit.transform.position;
-
                 }
             }
             startTime = Time.time;
