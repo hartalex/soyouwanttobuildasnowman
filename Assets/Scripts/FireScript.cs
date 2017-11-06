@@ -10,7 +10,8 @@ public class FireScript : MonoBehaviour
     public float duration;
     private float startTime;
     private bool empty = false;
-
+    public int coinCount = 1;
+    public int coinRadius = 5;
     void Start()
     {
         if (Fire == null)
@@ -55,9 +56,15 @@ public class FireScript : MonoBehaviour
     {
         if (!empty)
         {
-            GameObject coin = GameObject.Instantiate(Coin);
-            coin.transform.position = transform.position + new Vector3(1f, 0f, -1f);  // initial position
-            coin.AddComponent<Popup>();
+            for (int i = 0; i < coinCount; i++)
+            {
+                float radius = i * (365 / coinCount);
+                Vector3 direction = new Vector3(Mathf.Sin(radius), 0, Mathf.Cos(radius)) * coinRadius;
+                GameObject coin = GameObject.Instantiate(Coin);
+                coin.transform.position = transform.position+ direction;  // initial position
+                
+                coin.AddComponent<Popup>();
+            }
             empty = true;
         }
     }
