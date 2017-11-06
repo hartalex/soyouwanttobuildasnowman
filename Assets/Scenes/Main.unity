@@ -17207,7 +17207,7 @@ MonoBehaviour:
   Coin: {fileID: 1511605504741416, guid: b2866f9eaed62ab46a3e0c2c944f9c34, type: 2}
   duration: 10
   coinCount: 3
-  coinRadius: 1
+  coinRadius: 5
 --- !u!1 &771162422
 GameObject:
   m_ObjectHideFlags: 0
