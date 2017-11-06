@@ -5,6 +5,7 @@ public class CollectByCollision : MonoBehaviour
 {
     public CollectionTypes collectionType;
     public int value;
+    public GameObject particles;
 
     void OnTriggerEnter(Collider collider)
     {
@@ -12,7 +13,12 @@ public class CollectByCollision : MonoBehaviour
         {
             CoinPurse coinPurse = collider.gameObject.GetComponent<CoinPurse>();
             if (coinPurse != null)
-            {
+            {   
+                if (particles != null)
+                {
+                    GameObject initParticles = GameObject.Instantiate(particles);
+                    initParticles.transform.position = transform.position;
+                }
                 coinPurse.AddCoins(value);
                 DestroyObject(this.gameObject);
             }

@@ -8,19 +8,16 @@ public class InputCamera : MonoBehaviour {
     public float gravity = -9.8f;
 
     private CharacterController charController;
-    private Rigidbody rigidBody;
-    private float myMass = 1;
     public Camera mainCamera = null;
- 
+    public float jumpSpeed = 8.0F;
+
 
     void Start()
     {
         charController = GetComponent<CharacterController>();
-        rigidBody = GetComponent<Rigidbody>();
-        myMass = rigidBody.mass;
     }
 
-    void Update()
+    void LateUpdate()
     {
 
         float deltaX = UnityEngine.Input.GetAxis("Horizontal") * speed;
@@ -34,6 +31,10 @@ public class InputCamera : MonoBehaviour {
             Vector3 cameraWorldMovement = mainCamera.transform.TransformDirection(movement);
             Vector3 cameraWorldMovementGravity = cameraWorldMovement;
         cameraWorldMovement.y = 0;
+        if (UnityEngine.Input.GetButton("Jump")&& charController.isGrounded)
+        {
+            cameraWorldMovementGravity.y += jumpSpeed;
+        }
         cameraWorldMovementGravity.y += gravity;
         charController.Move(cameraWorldMovementGravity);
 
@@ -43,30 +44,5 @@ public class InputCamera : MonoBehaviour {
         {
             transform.LookAt(worldMovement);
         }
-    }
-
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-
-        Rigidbody body = hit.collider.attachedRigidbody;
-        float pushPower = 0;
-
-        if (body == null || body.isKinematic)
-            return;
-
-        if (hit.moveDirection.y < -0.3F)
-            return;
-
-        if (body.mass < myMass)
-        {
-            pushPower = myMass / body.mass;
-        }
-        else
-        {
-            return;
-        }
-
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        // body.velocity = Vector3.ClampMagnitude(pushDir * pushPower, speed);
     }
 }

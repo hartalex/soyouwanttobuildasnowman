@@ -138,10 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d8be61b0ab84b47aab8b5e78285b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 45
+  speed: 20
   snowBallExplosion: {fileID: 1655142382823938, guid: 35576d6c118a7c04ca7ecdbbfd650571,
     type: 2}
-  gravity: -9.8
+  gravity: -2.5
   height: 0.5
 --- !u!135 &135900678504887938
 SphereCollider:

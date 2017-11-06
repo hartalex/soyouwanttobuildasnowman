@@ -7,7 +7,6 @@ public class SnowBall : MonoBehaviour
     public float speed = 10.0f;
     public GameObject snowBallExplosion = null;
     private MeshRenderer meshRenderer = null;
-     private Vector3 midpoint;
     public float gravity = -9.8f;
     public float height = 1;
 
@@ -44,10 +43,13 @@ public class SnowBall : MonoBehaviour
 
     private void HitIndicator()
     {
-        meshRenderer.enabled = false;
-        GameObject explosion = GameObject.Instantiate(snowBallExplosion);
-        explosion.transform.position = transform.position;
-        DestroyObject(this.gameObject);
+        if (meshRenderer != null)
+        {
+            meshRenderer.enabled = false;
+            GameObject explosion = GameObject.Instantiate(snowBallExplosion);
+            explosion.transform.position = transform.position;
+            DestroyObject(this.gameObject);
+        }
     }
 
     

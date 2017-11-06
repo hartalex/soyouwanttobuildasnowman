@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 135960632391449724}
   - component: {fileID: 114163609614003630}
   - component: {fileID: 54603480870331492}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511605504741416}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -42.131504, y: -8.46, z: -265.37}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectionType: 0
   value: 1
+  particles: {fileID: 1816340262434724, guid: 061dd101b52d38046a37516cedffb480, type: 2}
 --- !u!114 &114722104496492370
 MonoBehaviour:
   m_ObjectHideFlags: 1

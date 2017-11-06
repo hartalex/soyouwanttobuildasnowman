@@ -14,9 +14,10 @@ namespace ldjam38
 		private CharacterController charController;
 		private Rigidbody rigidBody;
 		private float myMass = 1;
-   
+        public float jumpSpeed = 8.0F;
 
-		void Start ()
+
+        void Start ()
 		{
 			charController = GetComponent<CharacterController> ();
 			rigidBody = GetComponent<Rigidbody> ();
@@ -30,10 +31,14 @@ namespace ldjam38
 			float deltaZ = UnityEngine.Input.GetAxis ("Vertical") * speed;
 			Vector3 movement = new Vector3 (deltaX, 0, deltaZ);
 			movement = Vector3.ClampMagnitude (movement, speed);
+            
+            if (UnityEngine.Input.GetButton("Jump"))
+            {
+                movement.y = jumpSpeed;
+            }
+            movement.y -= gravity;
 
-			movement.y = gravity;
-
-			movement *= Time.deltaTime;
+            movement *= Time.deltaTime;
 			movement = transform.TransformDirection (movement);
 			charController.Move (movement);
 		}
