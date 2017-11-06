@@ -14,7 +14,7 @@ namespace ldjam38
 		private CharacterController charController;
 		private Rigidbody rigidBody;
 		private float myMass = 1;
-        public Transform cameraPosition;
+   
 
 		void Start ()
 		{
