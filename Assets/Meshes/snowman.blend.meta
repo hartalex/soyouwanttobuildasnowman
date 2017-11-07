@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 61802bb13c3f34b428fa75010bbf27fb
+timeCreated: 1510088120
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arms
+    100002: ArmSkeleton
+    100004: Base
+    100006: Head
+    100008: LowerArm
+    100010: LowerFingerTip
+    100012: LowerFingerTip_ik
+    100014: LowerMiddleFinger
+    100016: LowerUpperFinger
+    100018: Mid
+    100020: MiddleFingerTip
+    100022: MiddleFingerTip_ik
+    100024: MiddleMiddlerFinger
+    100026: MiddleUpperFinger
+    100028: SnowMan
+    100030: //RootNode
+    100032: UpperArm
+    100034: UpperFingerTip
+    100036: UpperMiddleFinger
+    100038: UpperUpperFinger
+    100040: Wrist
+    100042: Wrist_IK
+    400000: Arms
+    400002: ArmSkeleton
+    400004: Base
+    400006: Head
+    400008: LowerArm
+    400010: LowerFingerTip
+    400012: LowerFingerTip_ik
+    400014: LowerMiddleFinger
+    400016: LowerUpperFinger
+    400018: Mid
+    400020: MiddleFingerTip
+    400022: MiddleFingerTip_ik
+    400024: MiddleMiddlerFinger
+    400026: MiddleUpperFinger
+    400028: SnowMan
+    400030: //RootNode
+    400032: UpperArm
+    400034: UpperFingerTip
+    400036: UpperMiddleFinger
+    400038: UpperUpperFinger
+    400040: Wrist
+    400042: Wrist_IK
+    2300000: Base
+    2300002: Head
+    2300004: Mid
+    3300000: Base
+    3300002: Head
+    3300004: Mid
+    4300000: Arms
+    4300002: Head
+    4300004: Mid
+    4300006: Base
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Arms
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 7f8d9f190e26347e492190808b3fea95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: f273b47677331dd4f9848cb43b292d0c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

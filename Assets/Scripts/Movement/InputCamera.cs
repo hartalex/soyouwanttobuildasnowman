@@ -10,6 +10,9 @@ public class InputCamera : MonoBehaviour {
     private CharacterController charController;
     public Camera mainCamera = null;
     public float jumpSpeed = 8.0F;
+    public GameObject snowmanbase = null;
+    public int rotationBaseSpeed = 1;
+
 
 
     void Start()
@@ -23,7 +26,10 @@ public class InputCamera : MonoBehaviour {
         float deltaX = UnityEngine.Input.GetAxis("Horizontal") * speed;
         float deltaZ = UnityEngine.Input.GetAxis("Vertical") * speed;
             Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-
+            if (deltaX != 0 || deltaZ != 0)
+            {
+            snowmanbase.transform.Rotate(rotationBaseSpeed, 0, 0);
+            }
             movement = Vector3.ClampMagnitude(movement, speed);
 
             movement *= Time.deltaTime;
