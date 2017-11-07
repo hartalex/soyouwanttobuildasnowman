@@ -33,7 +33,7 @@ public class InputCamera : MonoBehaviour {
         cameraWorldMovement.y = 0;
         if (UnityEngine.Input.GetButton("Jump")&& charController.isGrounded)
         {
-            cameraWorldMovementGravity.y += jumpSpeed;
+        //    cameraWorldMovementGravity.y += jumpSpeed;
         }
         cameraWorldMovementGravity.y += gravity;
         charController.Move(cameraWorldMovementGravity);

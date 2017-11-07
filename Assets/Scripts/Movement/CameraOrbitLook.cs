@@ -30,7 +30,7 @@ public class CameraOrbitLook : MonoBehaviour
     }
     void LateUpdate()
     {
-      
+
         transform.position = target.transform.position - transform.forward * distance;
         transform.LookAt(target.transform.position);//makes the camera look to it
     }

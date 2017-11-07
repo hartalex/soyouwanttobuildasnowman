@@ -29,7 +29,7 @@ public class ThirdPersonSnowBallShooter : MonoBehaviour
     {
         if (Time.time - startTime > duration)
         {
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetButton("Fire1"))
             {
                 Vector3 origin = transform.position + transform.TransformDirection(Vector3.forward * 1.5f) + transform.TransformDirection(Vector3.right);
                 Vector3 direction = transform.position + transform.TransformDirection(Vector3.forward * maxDistance);
