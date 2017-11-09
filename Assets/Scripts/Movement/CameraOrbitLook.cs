@@ -24,14 +24,25 @@ public class CameraOrbitLook : MonoBehaviour
 
     void FixedUpdate()
     {//makes the camera rotate around "point" coords, rotating around its Y axis, 20 degrees per second times the speed modifier
-        transform.RotateAround(target.transform.position, new Vector3(0.0f, 1.0f, 0.0f), 50*Time.deltaTime * speedMod * Input.GetAxis("Mouse X"));
-        transform.RotateAround(target.transform.position, new Vector3(1.0f, 0.0f, 0.0f), 50*Time.deltaTime * speedMod * Input.GetAxis("Mouse Y"));
+        if (Input.GetButton("ResetCamera"))
+        {
+            Vector3 position = target.transform.TransformPoint(0, 5, -distance);
+            transform.position = position;
+        }
+        else
+        {
+            transform.RotateAround(target.transform.position, new Vector3(0.0f, 1.0f, 0.0f), 50 * Time.deltaTime * speedMod * Input.GetAxis("Mouse X"));
+            transform.RotateAround(target.transform.position, new Vector3(1.0f, 0.0f, 0.0f), 50 * Time.deltaTime * speedMod * Input.GetAxis("Mouse Y"));
+        }
       
     }
     void LateUpdate()
     {
-
-        transform.position = target.transform.position - transform.forward * distance;
+        if (!Input.GetButton("ResetCamera"))
+        {
+            transform.position = target.transform.position - transform.forward * distance;
+        }
         transform.LookAt(target.transform.position);//makes the camera look to it
+        
     }
 }

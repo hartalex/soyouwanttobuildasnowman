@@ -31,12 +31,12 @@ public class ThirdPersonSnowBallShooter : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                Vector3 origin = transform.position + transform.TransformDirection(Vector3.forward * 1.5f) + transform.TransformDirection(Vector3.right);
+                Vector3 origin = transform.position + transform.TransformDirection(Vector3.forward * 0.5f) + transform.TransformDirection(Vector3.right * 2);
                 Vector3 direction = transform.position + transform.TransformDirection(Vector3.forward * maxDistance);
                 GameObject mySnowBall = GameObject.Instantiate(snowBall);
                 mySnowBall.transform.position = origin;
                 mySnowBall.transform.LookAt(direction);
-                SnowBall snowBallScript = mySnowBall.GetComponent<SnowBall>();
+                mySnowBall.GetComponent<SnowBall>();
                 startTime = Time.time;
             }
            
