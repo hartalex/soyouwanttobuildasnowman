@@ -20,7 +20,9 @@ public class InputCamera : MonoBehaviour
     private float timeToNoSpeed = 1f;
     private float currentTime = 0;
     private float currentSpeed = 6.0f;
-
+    private float jumpStart = 0;
+    private float jumpMaxTime = 1;
+    private float jumpDelta = 0;
 
     void Start()
     {
@@ -75,11 +77,26 @@ public class InputCamera : MonoBehaviour
         Vector3 cameraWorldMovement = mainCamera.transform.TransformDirection(movement);
         Vector3 cameraWorldMovementGravity = cameraWorldMovement;
         cameraWorldMovement.y = 0;
-        if (UnityEngine.Input.GetButton("Jump") && charController.isGrounded)
+        cameraWorldMovementGravity.y = 0;
+        if (UnityEngine.Input.GetButtonDown("Jump") && charController.isGrounded)
         {
-            //    cameraWorldMovementGravity.y += jumpSpeed;
+            jumpStart = Time.time;
+        //       cameraWorldMovementGravity.y += (jumpSpeed); 
+        } 
+        if (jumpStart != 0)
+        {
+            
+            jumpDelta += Mathf.Lerp(0, jumpSpeed-jumpDelta, (Time.time - jumpStart / jumpMaxTime));
+            cameraWorldMovementGravity.y = jumpDelta;
+            if (jumpSpeed-jumpDelta <= 0)
+            {
+                jumpStart = 0;
+            }
         }
-        cameraWorldMovementGravity.y += gravity;
+
+        cameraWorldMovementGravity.y += (gravity * Time.deltaTime);
+       
+
         charController.Move(cameraWorldMovementGravity);
 
         Vector3 worldMovement = transform.position + cameraWorldMovement;
